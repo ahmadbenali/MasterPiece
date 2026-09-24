@@ -15,4 +15,4 @@ Master Piece project for orange code academy.
 8. <strong>🟢Where to find ATM and working hours. </strong>
 
 # Wireframe, Mockup, and Prototype 
-<strong>Link: </strong>
+<strong>Link: </strong> [Figma](https://www.figma.com/design/ipzudJJIUl49BYgllS42RA/NorthBank?node-id=1-845&t=ebwVER2fUuw8ATcd-1)
