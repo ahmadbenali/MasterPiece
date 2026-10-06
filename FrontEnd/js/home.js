@@ -167,8 +167,8 @@ byId('calculator').addEventListener('submit', (event) => event.preventDefault())
 
 // Cosmetic currency controls change their labels and flags only.
 const currencyFlags = {
-  USD: 'assets/usd.svg', EUR: 'assets/eur.svg', GBP: 'assets/gbp.svg',
-  JPY: 'assets/flags/jp.svg', CAD: 'assets/flags/ca.svg', AUD: 'assets/flags/au.svg'
+  USD: '../assets/usd.svg', EUR: '../assets/eur.svg', GBP: '../assets/gbp.svg',
+  JPY: '../assets/flags/jp.svg', CAD: '../assets/flags/ca.svg', AUD: '../assets/flags/au.svg'
 };
 function updateCurrencyFlags() {
   byId('sendFlag').src = currencyFlags[byId('sendCurrency').value];
