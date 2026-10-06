@@ -85,3 +85,7 @@
 
 .ribbon-window{overflow:hidden;flex:1;min-width:0;display:flex;align-items:center}.ribbon-arrow{flex-shrink:0}#mobileLocale img{vertical-align:middle;margin-right:8px}
 @media(min-width:1600px){.reviews-section{max-width:none;margin-left:0;margin-right:0}.reviews-heading h2{max-width:750px}.reviews-heading h2 br{display:none}}
+
+/* northBank wordmark preserves the homepage design with a wider logo. */
+.nav-wrap .logo{width:145px;height:auto}.footer-brand .logo{width:195px;height:auto}
+@media(max-width:768px){.nav-wrap .logo{width:115px}.nav-signup{white-space:nowrap}}

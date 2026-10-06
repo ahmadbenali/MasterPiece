@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="description" content="Static banking interface preview with the northBank homepage design style">
-<title>Every transfer.<br>A clearer view. — northBank showcase</title>
+<title>AI assessment — northBank showcase</title>
 <link rel="icon" href="../assets/northbank-logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/workspace.css">
@@ -22,7 +22,7 @@
 <span class="workspace-label">Admin</span>
 </div>
 <div class="workspace-links" id="workspaceLinks">
-<a href="admin.html" aria-current="page">Overview</a>
+<a href="admin.html">Overview</a>
 <a href="admin-stream.html">Live stream</a>
 <a href="admin-flagged.html">Flagged</a>
 <a href="admin-cases.html">Cases</a>
@@ -31,8 +31,8 @@
 <summary>More</summary>
 <div class="nav-more-list">
 <a href="admin-investigation.html">Investigation</a>
-<a href="admin-assessment.html">AI assessment</a>
-<a href="admin-decision.html">Decision desk</a>
+<a href="admin-assessment-2048.html" aria-current="page">AI assessment</a>
+<a href="admin-decision-2048.html">Decision desk</a>
 <a href="admin-credentials.html">Staff credentials</a>
 <a href="admin-login.html">Sample staff sign-in</a>
 <a href="admin-exit.html">Exit desk / Lock station</a>
@@ -53,76 +53,42 @@
 <div class="page-wrap">
 <div class="hero-topline">
 <div class="eyebrow">Fraud operations · Admin workspace</div>
-<span class="status-badge dark">● Station active</span>
 </div>
-<h1 class="display-title">Every transfer.<br>A clearer view.</h1>
-<p>Monitor sample activity, prioritize alerts, and keep investigations moving.</p>
+<h1 class="display-title">AI assessment</h1>
+<p>Falcon neural factor weighting. Illustrative model outputs.</p>
 </div>
 </section>
 <div class="page-wrap content-area">
-<div class="grid-four">
-<article class="stat-card featured">
-<div class="eyebrow">Processed</div>
-<strong>1,284</strong>
-<small>Sample transactions today</small>
-</article>
-<article class="stat-card ">
-<div class="eyebrow">Flagged</div>
-<strong>18</strong>
-<small>Requires review</small>
-</article>
-<article class="stat-card ">
-<div class="eyebrow">Open cases</div>
-<strong>7</strong>
-<small>Active investigations</small>
-</article>
-<article class="stat-card ">
-<div class="eyebrow">Mean SLA</div>
-<strong>4m 12s</strong>
-<small>Average response time</small>
-</article>
-</div>
 <div class="grid-two">
 <section class="card-wise ">
-<h2>Priority intercept</h2>
-<article class="risk-alert">
-<div class="card-top">
-<strong>TX-2048 · $4,800.00</strong>
-<span class="status-badge danger">Risk 0.91</span>
+<h2>Falcon v5.2</h2>
+<span class="status-badge danger">Critical risk</span>
+<div class="risk-score">0.91</div>
+<div class="risk-meter" aria-label="Illustrative risk score 0.91">
+<span>
+</span>
 </div>
-<p>Velocity &amp; novel geofence spike. Review the sample transaction telemetry.</p>
-<a class="btn-wise btn-dark" href="admin-investigation-2048.html">Investigate TX-2048 →</a>
-</article>
+<p>Model confidence: 99.4% · Sample</p>
+<div class="factor-row">
+<span>Tor proxy</span>
+<strong>+0.42</strong>
+</div>
+<div class="factor-row">
+<span>Velocity leap</span>
+<strong>+0.38</strong>
+</div>
+<div class="factor-row">
+<span>Unverified IBAN</span>
+<strong>+0.12</strong>
+</div>
 </section>
 <section class="card-wise ">
-<h2>Your duty desk</h2>
-<dl class="summary-list">
-<div>
-<dt>Assigned cases</dt>
-<dd>7 active</dd>
-</div>
-<div>
-<dt>Closed today</dt>
-<dd>28</dd>
-</div>
-<div>
-<dt>Triage SLA</dt>
-<dd>14 minutes remaining</dd>
-</div>
-</dl>
-<div class="mt-4">
-<a class="btn-wise btn-outline" href="admin-cases.html">Open case queue →</a>
-</div>
+<h2>Recommended disposition</h2>
+<p>Autonomous wire cancellation, revoke browser sessions, and lock the debit card.</p>
+<div class="notice ">Static recommendations for the sample investigation. No model is running.</div>
+<a class="btn-wise btn-dark" href="admin-decision-2048.html">Continue to decision desk →</a>
 </section>
 </div>
-<section class="card-wise ">
-<h2>A little more visibility</h2>
-<div class="button-row">
-<a class="btn-wise btn-outline" href="admin-stream.html">Live fraud stream ↗</a>
-<a class="btn-wise btn-outline" href="admin-flagged.html">Flagged ledger ↗</a>
-<a class="btn-wise btn-outline" href="admin-reports.html">Compliance reports ↗</a>
-</div>
-</section>
 </div>
 </main>
 <footer class="workspace-footer">
