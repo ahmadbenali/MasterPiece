@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Static banking interface preview with the northBank homepage design style">
+<title>Safe at every step — northBank showcase</title>
+<link rel="icon" href="../../assets/northbank-logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/workspace.css">
+<script src="../../js/workspace.js" defer>
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="workspace-header">
+<nav class="workspace-nav" aria-label="User navigation">
+<div class="workspace-brand">
+<a href="../home/home.html" aria-label="northBank home">
+<img class="workspace-logo" src="../../assets/northbank-logo.svg" alt="northBank">
+</a>
+<span class="workspace-label">Personal</span>
+</div>
+<div class="workspace-links" id="workspaceLinks">
+<a href="../user/user.html">Overview</a>
+<a href="../accounts/accounts.html">Accounts</a>
+<a href="../transfer/transfer.html">Transfer</a>
+<a href="../cards/cards.html">Cards</a>
+<a href="../history/history.html">Activity</a>
+<a href="../insights/insights.html">Spending insights</a>
+<a href="../subscriptions/subscriptions.html">Subscriptions</a>
+<a href="security.html" aria-current="page">Security center</a>
+<a href="../atm/atm.html">ATM locator</a>
+<a href="../profile/profile.html">Profile</a>
+</div>
+<div class="nav-actions">
+<a class="btn-wise btn-outline nav-logout" href="../logout/logout.html">Logout</a>
+</div>
+<button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="workspaceLinks">☰</button>
+</nav>
+</header>
+<main id="main" class="workspace-main">
+<section class="page-hero">
+<div class="page-wrap">
+<div class="hero-topline">
+<div class="eyebrow">Personal account · User workspace</div>
+</div>
+<h1 class="display-title">Safe at every step</h1>
+<p>A clearer view of your protection and recognized devices.</p>
+</div>
+</section>
+<div class="page-wrap content-area">
+<div class="grid-equal">
+<section class="card-wise ">
+<h2>Account protection</h2>
+<dl class="summary-list">
+<div>
+<dt>Biometric passkeys</dt>
+<dd>
+<span class="status-badge ">Active</span>
+</dd>
+</div>
+<div>
+<dt>Two-step verification</dt>
+<dd>Enabled</dd>
+</div>
+<div>
+<dt>Recognized devices</dt>
+<dd>2 devices</dd>
+</div>
+<div>
+<dt>Account alerts</dt>
+<dd>Enabled</dd>
+</div>
+</dl>
+<div class="notice ">✓ Your sample account is protected.</div>
+</section>
+<section class="card-wise ">
+<h2>Recognized devices</h2>
+<div class="device-row">
+<div>
+<strong>MacBook Pro</strong>
+<small>New York · Current device</small>
+</div>
+<span class="status-badge ">Trusted</span>
+</div>
+<div class="device-row">
+<div>
+<strong>iPhone 15</strong>
+<small>Last active yesterday</small>
+</div>
+<button class="btn-wise btn-outline" data-toast="Sample device review complete. No real device settings changed.">Review</button>
+</div>
+</section>
+</div>
+<section class="card-wise ">
+<h2>Activity needing your attention</h2>
+<div class="risk-alert">
+<strong>Confirm an unusual transfer</strong>
+<p>We noticed a sample wire transfer to a new beneficiary.</p>
+<a class="btn-wise btn-dark" href="fraud-confirmation.html">Review activity →</a>
+</div>
+</section>
+</div>
+</main>
+<footer class="workspace-footer">
+<div class="page-wrap">
+<span>© 2026 · Independent static showcase. Static banking design preview.</span>
+<span>All balances, identities and actions are illustrative.</span>
+</div>
+</footer>
+<div class="workspace-toast" id="toast" role="status" hidden>
+</div>
+<dialog id="previewDialog" class="preview-dialog">
+<button class="close-dialog" aria-label="Close dialog">×</button>
+<h2>Preview information</h2>
+<p id="dialogCopy">
+</p>
+<button class="btn-wise btn-dark" data-dialog-close>Got it</button>
+</dialog>
+</body>
+</html>

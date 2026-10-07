@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Static banking interface preview with the northBank homepage design style">
+<title>Subscriptions — northBank showcase</title>
+<link rel="icon" href="../../assets/northbank-logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/workspace.css">
+<script src="../../js/workspace.js" defer>
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="workspace-header">
+<nav class="workspace-nav" aria-label="User navigation">
+<div class="workspace-brand">
+<a href="../home/home.html" aria-label="northBank home">
+<img class="workspace-logo" src="../../assets/northbank-logo.svg" alt="northBank">
+</a>
+<span class="workspace-label">Personal</span>
+</div>
+<div class="workspace-links" id="workspaceLinks">
+<a href="../user/user.html">Overview</a>
+<a href="../accounts/accounts.html">Accounts</a>
+<a href="../transfer/transfer.html">Transfer</a>
+<a href="../cards/cards.html">Cards</a>
+<a href="../history/history.html">Activity</a>
+<a href="../insights/insights.html">Spending insights</a>
+<a href="subscriptions.html" aria-current="page">Subscriptions</a>
+<a href="../security/security.html">Security center</a>
+<a href="../atm/atm.html">ATM locator</a>
+<a href="../profile/profile.html">Profile</a>
+</div>
+<div class="nav-actions">
+<a class="btn-wise btn-outline nav-logout" href="../logout/logout.html">Logout</a>
+</div>
+<button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="workspaceLinks">☰</button>
+</nav>
+</header>
+<main id="main" class="workspace-main">
+<section class="page-hero">
+<div class="page-wrap">
+<div class="hero-topline">
+<div class="eyebrow">Personal account · User workspace</div>
+</div>
+<h1 class="display-title">Subscriptions</h1>
+<p>Keep recurring payments in sight.</p>
+</div>
+</section>
+<div class="page-wrap content-area">
+<section class="card-wise ">
+<h2>Your recurring payments</h2>
+<div class="table-scroll">
+<table class="wise-table">
+<thead>
+<tr>
+<th scope="col">Service</th>
+<th scope="col">Next payment</th>
+<th scope="col">Amount</th>
+<th scope="col">Status</th>
+<th scope="col">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Streaming Plus</td>
+<td>12 Oct 2026</td>
+<td>$14.99 / month</td>
+<td>
+<span class="status-badge ">Active</span>
+</td>
+<td>
+<button class="btn-wise btn-outline" data-toast="Subscription management is a visual preview only.">Manage</button>
+</td>
+</tr>
+<tr>
+<td>Cloud Storage</td>
+<td>18 Oct 2026</td>
+<td>$9.99 / month</td>
+<td>
+<span class="status-badge ">Active</span>
+</td>
+<td>
+<button class="btn-wise btn-outline" data-toast="Subscription management is a visual preview only.">Manage</button>
+</td>
+</tr>
+<tr>
+<td>Fitness Studio</td>
+<td>22 Oct 2026</td>
+<td>$45.00 / month</td>
+<td>
+<span class="status-badge ">Active</span>
+</td>
+<td>
+<button class="btn-wise btn-outline" data-toast="Subscription management is a visual preview only.">Manage</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+<footer class="workspace-footer">
+<div class="page-wrap">
+<span>© 2026 · Independent static showcase. Static banking design preview.</span>
+<span>All balances, identities and actions are illustrative.</span>
+</div>
+</footer>
+<div class="workspace-toast" id="toast" role="status" hidden>
+</div>
+<dialog id="previewDialog" class="preview-dialog">
+<button class="close-dialog" aria-label="Close dialog">×</button>
+<h2>Preview information</h2>
+<p id="dialogCopy">
+</p>
+<button class="btn-wise btn-dark" data-dialog-close>Got it</button>
+</dialog>
+</body>
+</html>

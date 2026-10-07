@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Static banking interface preview with the northBank homepage design style">
+<title>Sign in — northBank showcase</title>
+<link rel="icon" href="../../assets/northbank-logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/workspace.css">
+<script src="../../js/workspace.js" defer>
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="auth-nav">
+<div class="page-wrap">
+<a href="../home/home.html" aria-label="northBank home">
+<img class="workspace-logo" src="../../assets/northbank-logo.svg" alt="northBank">
+</a>
+</div>
+</header>
+<main id="main" class="auth-page">
+<div class="page-wrap">
+<div class="auth-layout">
+<section class="auth-story">
+<div class="eyebrow">Your personal account</div>
+<h2>A familiar place<br>for your money.</h2>
+<p>Simple steps. Clear information. A little more control over every move.</p>
+<p class="small-copy">Static sign-in preview. No credentials are collected or stored.</p>
+</section>
+<section class="auth-card">
+<div class="eyebrow">Welcome back</div>
+<h1>Sign in</h1>
+<p>Access your sample checking and savings account.</p>
+<div class="field">
+<label>Account identifier<input type="text" value="alex.morgan@email.com" readonly autocomplete="off">
+</label>
+</div>
+<div class="field">
+<label>Security passphrase<input type="password" value="sample-passphrase" readonly autocomplete="off">
+</label>
+</div>
+<a class="btn-wise btn-dark" href="../verification/verification.html">Sign in to workspace →</a>
+<button class="text-link info-button mt-4" data-info="This is a visual sign-in sample. No password reset or authentication takes place.">Forgot your passcode?</button>
+</section>
+</div>
+</div>
+</main>
+<div class="workspace-toast" id="toast" role="status" hidden>
+</div>
+<dialog id="previewDialog" class="preview-dialog">
+<button class="close-dialog" aria-label="Close dialog">×</button>
+<h2>Preview information</h2>
+<p id="dialogCopy">
+</p>
+<button class="btn-wise btn-dark" data-dialog-close>Got it</button>
+</dialog>
+</body>
+</html>

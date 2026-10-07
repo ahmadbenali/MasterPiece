@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Static banking interface preview with the northBank homepage design style">
+<title>Move money — northBank showcase</title>
+<link rel="icon" href="../../assets/northbank-logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/workspace.css">
+<script src="../../js/workspace.js" defer>
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="workspace-header">
+<nav class="workspace-nav" aria-label="User navigation">
+<div class="workspace-brand">
+<a href="../home/home.html" aria-label="northBank home">
+<img class="workspace-logo" src="../../assets/northbank-logo.svg" alt="northBank">
+</a>
+<span class="workspace-label">Personal</span>
+</div>
+<div class="workspace-links" id="workspaceLinks">
+<a href="../user/user.html">Overview</a>
+<a href="../accounts/accounts.html">Accounts</a>
+<a href="transfer.html" aria-current="page">Transfer</a>
+<a href="../cards/cards.html">Cards</a>
+<a href="../history/history.html">Activity</a>
+<a href="../insights/insights.html">Spending insights</a>
+<a href="../subscriptions/subscriptions.html">Subscriptions</a>
+<a href="../security/security.html">Security center</a>
+<a href="../atm/atm.html">ATM locator</a>
+<a href="../profile/profile.html">Profile</a>
+</div>
+<div class="nav-actions">
+<a class="btn-wise btn-outline nav-logout" href="../logout/logout.html">Logout</a>
+</div>
+<button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="workspaceLinks">☰</button>
+</nav>
+</header>
+<main id="main" class="workspace-main">
+<section class="page-hero">
+<div class="page-wrap">
+<div class="hero-topline">
+<div class="eyebrow">Personal account · User workspace</div>
+</div>
+<h1 class="display-title">Move money</h1>
+<p>A simple way to send. Clear details, every step.</p>
+</div>
+</section>
+<div class="page-wrap content-area">
+<div class="grid-two">
+<section class="card-wise form-card">
+<h2>Transfer details</h2>
+<div class="progress-steps">
+<b>01 Details</b>
+<span>02 Review</span>
+<span>03 Confirmation</span>
+</div>
+<form action="transfer-review.html" data-route="transfer-review.html">
+<div class="field">
+<label>Source account<input type="text" value="Checking •••• 1234 ($8,250)" readonly autocomplete="off">
+</label>
+</div>
+<div class="field">
+<label>Recipient / beneficiary<input type="text" value="Jordan Lee (NorthBank client)" readonly autocomplete="off">
+</label>
+</div>
+<div class="field">
+<label>Amount ($ USD)<input type="text" value="$250.00" readonly autocomplete="off">
+</label>
+</div>
+<div class="notice ">No fees on this sample transfer. All amounts are fixed visual examples.</div>
+<button class="btn-wise btn-dark" type="submit">Review transfer details →</button>
+</form>
+</section>
+<section class="card-wise ">
+<h2>Everything up front</h2>
+<dl class="summary-list">
+<div>
+<dt>Transfer fee</dt>
+<dd>$0.00</dd>
+</div>
+<div>
+<dt>Delivery</dt>
+<dd>Today</dd>
+</div>
+<div>
+<dt>Amount sent</dt>
+<dd>$250.00</dd>
+</div>
+</dl>
+<p class="mt-4">This is a static demonstration. No money moves.</p>
+</section>
+</div>
+</div>
+</main>
+<footer class="workspace-footer">
+<div class="page-wrap">
+<span>© 2026 · Independent static showcase. Static banking design preview.</span>
+<span>All balances, identities and actions are illustrative.</span>
+</div>
+</footer>
+<div class="workspace-toast" id="toast" role="status" hidden>
+</div>
+<dialog id="previewDialog" class="preview-dialog">
+<button class="close-dialog" aria-label="Close dialog">×</button>
+<h2>Preview information</h2>
+<p id="dialogCopy">
+</p>
+<button class="btn-wise btn-dark" data-dialog-close>Got it</button>
+</dialog>
+</body>
+</html>

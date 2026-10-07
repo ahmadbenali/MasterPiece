@@ -89,3 +89,28 @@
 /* northBank wordmark preserves the homepage design with a wider logo. */
 .nav-wrap .logo{width:145px;height:auto}.footer-brand .logo{width:195px;height:auto}
 @media(max-width:768px){.nav-wrap .logo{width:115px}.nav-signup{white-space:nowrap}}
+
+/* Let the reference logo blend with the navigation background. */
+.nav-wrap .logo,.footer-brand .logo{height:auto;mix-blend-mode:multiply}
+
+/* Compact northBank logo sizing. */
+.nav-wrap .logo{width:95px;height:auto}
+.footer-brand .logo{width:125px;height:auto}
+@media(max-width:768px){.nav-wrap .logo{width:80px}}
+
+/* Keep the stacked star logo inside the compact header. */
+.nav-wrap .logo{max-height:52px;object-fit:contain}
+
+/* Give the rate comparison more room on wide screens. */
+.rate-section.section-wrap{width:94%;max-width:1440px}
+@media(max-width:768px){.rate-section.section-wrap{width:100%}}
+
+/* Wider homepage content with a consistent, modest outer gutter. */
+@media(min-width:769px){
+  .section-wrap,.rate-section.section-wrap{width:94%;max-width:none;padding-left:0;padding-right:0}
+  .rate-panels{width:100%;max-width:none}
+  .reviews-section{width:94%;max-width:none;margin-left:auto;margin-right:auto;padding-left:0;grid-template-columns:minmax(0,43fr) minmax(0,57fr)}
+  .app-section{padding-left:3%;padding-right:3%}
+  .disclaimers.section-wrap{padding-left:36px;padding-right:36px}
+  .mission-section{margin-left:3%;margin-right:3%}
+}

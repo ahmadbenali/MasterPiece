@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Static banking interface preview with the northBank homepage design style">
+<title>Welcome to your account — northBank showcase</title>
+<link rel="icon" href="../../assets/northbank-logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/workspace.css">
+<script src="../../js/workspace.js" defer>
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="auth-nav">
+<div class="page-wrap">
+<a href="../home/home.html" aria-label="northBank home">
+<img class="workspace-logo" src="../../assets/northbank-logo.svg" alt="northBank">
+</a>
+</div>
+</header>
+<main id="main" class="auth-page">
+<div class="page-wrap">
+<div class="auth-layout">
+<section class="auth-story">
+<div class="eyebrow">Your personal account</div>
+<h2>Your money.<br>Your next move.</h2>
+<p>Simple steps. Clear information. A little more control over every move.</p>
+<p class="small-copy">Static sign-in preview. No credentials are collected or stored.</p>
+</section>
+<section class="auth-card">
+<div class="eyebrow">Welcome back</div>
+<h1>Welcome to your account</h1>
+<p>Explore checking, savings, transfers and security in one place.</p>
+<a class="btn-wise btn-dark" href="../customer-login/customer-login.html">Customer sign in →</a>
+<p class="small-copy mt-4">No password needed to explore. <a class="text-link" href="../user/user.html">Go directly to your account</a>
+</p>
+</section>
+</div>
+</div>
+</main>
+<div class="workspace-toast" id="toast" role="status" hidden>
+</div>
+<dialog id="previewDialog" class="preview-dialog">
+<button class="close-dialog" aria-label="Close dialog">×</button>
+<h2>Preview information</h2>
+<p id="dialogCopy">
+</p>
+<button class="btn-wise btn-dark" data-dialog-close>Got it</button>
+</dialog>
+</body>
+</html>

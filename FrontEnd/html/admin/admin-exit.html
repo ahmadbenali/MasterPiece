@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Static banking interface preview with the northBank homepage design style">
+<title>Station locked — northBank showcase</title>
+<link rel="icon" href="../../assets/northbank-logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/workspace.css">
+<script src="../../js/workspace.js" defer>
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="auth-nav">
+<div class="page-wrap">
+<a href="../home/home.html" aria-label="northBank home">
+<img class="workspace-logo" src="../../assets/northbank-logo.svg" alt="northBank">
+</a>
+</div>
+</header>
+<main id="main" class="session-page">
+<section class="session-box">
+<div class="success-icon">◇</div>
+<div class="eyebrow">Admin station</div>
+<h1 class="display-title">Station securely locked.</h1>
+<p class="muted">Your sample operations shift has ended.</p>
+<div class="notice ">Officer: Agent J. Davis · Level 3 Risk Ops<br>Shift: 03h 42m</div>
+<a class="btn-wise btn-dark" href="admin-login.html">Return to sign in →</a>
+<p class="small-copy mt-4">Visual confirmation only. No real sessions or tokens exist.</p>
+</section>
+</main>
+<div class="workspace-toast" id="toast" role="status" hidden>
+</div>
+<dialog id="previewDialog" class="preview-dialog">
+<button class="close-dialog" aria-label="Close dialog">×</button>
+<h2>Preview information</h2>
+<p id="dialogCopy">
+</p>
+<button class="btn-wise btn-dark" data-dialog-close>Got it</button>
+</dialog>
+</body>
+</html>

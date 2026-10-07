@@ -1,12 +1,37 @@
 // Static presentation controls only. No authentication, APIs or data storage.
 const navigation = document.getElementById('workspaceLinks');
 const toggle = document.getElementById('navToggle');
-const moreMenus = [...document.querySelectorAll('.nav-more')];
 function closeNavigation() {
   navigation?.classList.remove('is-open');
   toggle?.setAttribute('aria-expanded', 'false');
-  moreMenus.forEach(menu => { menu.open = false; });
 }
+// Keep connected tabs visible only alongside the green hero.
+const workspaceHeader = document.querySelector('.workspace-header');
+const workspaceHero = document.querySelector('.workspace-main > .page-hero');
+if (workspaceHeader && workspaceHero) {
+  let headerFramePending = false;
+  function updateHeaderVisibility() {
+    headerFramePending = false;
+    const hidden = workspaceHero.getBoundingClientRect().bottom <= workspaceHeader.offsetHeight;
+    if (workspaceHeader.classList.contains('is-past-hero') === hidden) return;
+    workspaceHeader.classList.toggle('is-past-hero', hidden);
+    workspaceHeader.inert = hidden;
+    if (hidden) closeNavigation();
+  }
+  function scheduleHeaderVisibility() {
+    if (headerFramePending) return;
+    headerFramePending = true;
+    requestAnimationFrame(updateHeaderVisibility);
+  }
+  window.addEventListener('scroll', scheduleHeaderVisibility, { passive: true });
+  window.addEventListener('resize', scheduleHeaderVisibility);
+  window.addEventListener('pageshow', scheduleHeaderVisibility);
+  const headerSizeObserver = new ResizeObserver(scheduleHeaderVisibility);
+  headerSizeObserver.observe(workspaceHeader);
+  headerSizeObserver.observe(workspaceHero);
+  updateHeaderVisibility();
+}
+
 toggle?.addEventListener('click', () => {
   const expanded = navigation.classList.toggle('is-open');
   toggle.setAttribute('aria-expanded', String(expanded));

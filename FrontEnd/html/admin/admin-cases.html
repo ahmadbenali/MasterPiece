@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Static banking interface preview with the northBank homepage design style">
+<title>Duty cases — northBank showcase</title>
+<link rel="icon" href="../../assets/northbank-logo.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/workspace.css">
+<script src="../../js/workspace.js" defer>
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<header class="workspace-header">
+<nav class="workspace-nav" aria-label="Admin navigation">
+<div class="workspace-brand">
+<a href="../home/home.html" aria-label="northBank home">
+<img class="workspace-logo" src="../../assets/northbank-logo.svg" alt="northBank">
+</a>
+<span class="workspace-label">Admin</span>
+</div>
+<div class="workspace-links" id="workspaceLinks">
+<a href="admin.html">Overview</a>
+<a href="admin-stream.html">Live stream</a>
+<a href="admin-flagged.html">Flagged</a>
+<a href="admin-cases.html" aria-current="page">Cases</a>
+<a href="admin-reports.html">Reports</a>
+<a href="admin-investigation.html">Investigation</a>
+<a href="admin-assessment.html">AI assessment</a>
+<a href="admin-decision.html">Decision desk</a>
+<a href="admin-credentials.html">Staff credentials</a>
+</div>
+<div class="nav-actions">
+<a class="btn-wise btn-outline nav-logout" href="admin-exit.html">Logout</a>
+</div>
+<button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="workspaceLinks">☰</button>
+</nav>
+</header>
+<main id="main" class="workspace-main">
+<section class="page-hero">
+<div class="page-wrap">
+<div class="hero-topline">
+<div class="eyebrow">Fraud operations · Admin workspace</div>
+</div>
+<h1 class="display-title">Duty cases</h1>
+<p>Triage SLA and shift assignment, all in sight.</p>
+</div>
+</section>
+<div class="page-wrap content-area">
+<div class="grid-four">
+<article class="stat-card featured">
+<div class="eyebrow">My cases</div>
+<strong>7 active</strong>
+<small>Assigned to Agent J. Davis</small>
+</article>
+<article class="stat-card ">
+<div class="eyebrow">Triage SLA</div>
+<strong>14m left</strong>
+<small>Sample deadline</small>
+</article>
+<article class="stat-card ">
+<div class="eyebrow">Closed today</div>
+<strong>28</strong>
+<small>Team activity</small>
+</article>
+<article class="stat-card ">
+<div class="eyebrow">Escalations</div>
+<strong>3</strong>
+<small>Awaiting review</small>
+</article>
+</div>
+<section class="card-wise ">
+<h2>Case queue</h2>
+<div class="table-scroll">
+<table class="wise-table">
+<thead>
+<tr>
+<th scope="col">Case</th>
+<th scope="col">Customer</th>
+<th scope="col">Incident</th>
+<th scope="col">SLA</th>
+<th scope="col">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>#8812</td>
+<td>Alex Morgan</td>
+<td>SWIFT · Tor</td>
+<td>
+<span class="status-badge danger">04m</span>
+</td>
+<td>
+<a href="admin-investigation.html">Open ↗</a>
+</td>
+</tr>
+<tr>
+<td>#8809</td>
+<td>Delta LLC</td>
+<td>IBAN gap</td>
+<td>18m</td>
+<td>
+<button class="text-link info-button" data-info="This is an illustrative case row. Case #8812 has a complete sample review flow.">Preview</button>
+</td>
+</tr>
+<tr>
+<td>#8804</td>
+<td>Vertex Global</td>
+<td>ACH spike</td>
+<td>32m</td>
+<td>
+<button class="text-link info-button" data-info="This is an illustrative case row. Case #8812 has a complete sample review flow.">Preview</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</div>
+</main>
+<footer class="workspace-footer">
+<div class="page-wrap">
+<span>© 2026 · Independent static showcase. Static banking design preview.</span>
+<span>All balances, identities and actions are illustrative.</span>
+</div>
+</footer>
+<div class="workspace-toast" id="toast" role="status" hidden>
+</div>
+<dialog id="previewDialog" class="preview-dialog">
+<button class="close-dialog" aria-label="Close dialog">×</button>
+<h2>Preview information</h2>
+<p id="dialogCopy">
+</p>
+<button class="btn-wise btn-dark" data-dialog-close>Got it</button>
+</dialog>
+</body>
+</html>
