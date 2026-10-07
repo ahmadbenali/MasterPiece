@@ -16,6 +16,10 @@
     />
     <link rel="stylesheet" href="../../css/bootstrap.min.css" />
     <link rel="stylesheet" href="../../css/home.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style type="text/tailwindcss">
+      @import "tailwindcss/utilities.css" prefix(tw);
+    </style>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -55,7 +59,7 @@
           ><a href="https://wise.com/help/">Help</a
           ><a href="../login/login.html">Log in</a>
         </div>
-        <a href="../login/login.html" class="button button-dark nav-signup"
+        <a href="../login/login.html?mode=signup" class="button button-dark nav-signup"
           >Sign up</a
         ><button
           id="mobileToggle"
@@ -399,29 +403,6 @@
           </article>
         </div>
       </section>
-      <section class="trust-section section-wrap">
-        <h2>We move billions for millions worldwide, every year</h2>
-        <div class="trust-grid">
-          <div>
-            <span class="trust-icon"
-              ><img src="../../assets/people.svg" alt="" /></span
-            ><strong>100,000s of new<br />customers every<br />week</strong>
-          </div>
-          <div>
-            <span class="trust-icon trust-star">★</span
-            ><strong>Excellent on<br />Trustpilot</strong>
-          </div>
-          <div>
-            <span class="trust-icon"
-              ><img src="../../assets/support.svg" alt="" /></span
-            ><strong
-              >24/7/365 human<br />support<sup
-                ><a href="#disclaimers">2</a></sup
-              ></strong
-            >
-          </div>
-        </div>
-      </section>
       <section class="platform-section section-wrap" id="platform">
         <h2 class="display-heading">
           The world's banks and<br class="desktop-break" />
@@ -448,7 +429,7 @@
         </div>
       </section>
       <div class="currency-ribbon" aria-label="International currencies">
-        <span class="ribbon-arrow">→</span>
+        <span class="ribbon-arrow tw:relative tw:shrink-0" aria-hidden="true"></span>
         <div class="ribbon-window">
           <div class="ribbon-flags">
             <img src="../../assets/eur.svg" alt="Euro" /><img

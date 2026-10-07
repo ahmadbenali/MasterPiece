@@ -1,6 +1,23 @@
 // Static presentation controls only. No authentication, APIs or data storage.
 const navigation = document.getElementById('workspaceLinks');
 const toggle = document.getElementById('navToggle');
+const logoutLinks = document.querySelectorAll('[data-logout]');
+if (logoutLinks.length) {
+  const logoutDialog = document.createElement('dialog');
+  logoutDialog.className = 'preview-dialog logout-dialog';
+  logoutDialog.setAttribute('aria-labelledby', 'logoutTitle');
+  logoutDialog.setAttribute('aria-describedby', 'logoutDescription');
+  logoutDialog.innerHTML = '<h2 id="logoutTitle">Log out of your account?</h2><p id="logoutDescription">Are you sure you want to log out? You can log in again as a user or admin.</p><div class="logout-dialog-actions"><button type="button" class="btn-wise btn-outline" data-logout-cancel autofocus>Stay logged in</button><button type="button" class="btn-wise btn-dark" data-logout-confirm>Log out</button></div>';
+  document.body.append(logoutDialog);
+  let logoutDestination;
+  logoutLinks.forEach(link => link.addEventListener('click', event => {
+    event.preventDefault();
+    logoutDestination = link.href;
+    logoutDialog.showModal();
+  }));
+  logoutDialog.querySelector('[data-logout-cancel]').addEventListener('click', () => logoutDialog.close());
+  logoutDialog.querySelector('[data-logout-confirm]').addEventListener('click', () => window.location.assign(logoutDestination));
+}
 function closeNavigation() {
   navigation?.classList.remove('is-open');
   toggle?.setAttribute('aria-expanded', 'false');

@@ -1,60 +1,13 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Static banking interface preview with the northBank homepage design style">
-<title>Staff authentication — northBank showcase</title>
-<link rel="icon" href="../../assets/northbank-favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" href="../../css/workspace.css">
-<script src="../../js/workspace.js" defer>
-</script>
-</head>
-<body>
-<a class="skip-link" href="#main">Skip to content</a>
-<header class="auth-nav">
-<div class="page-wrap">
-<a href="../home/home.html" aria-label="northBank home">
-<img class="workspace-logo" src="../../assets/northbank-logo.svg" alt="northBank">
-</a>
-</div>
-</header>
-<main id="main" class="auth-page">
-<div class="page-wrap">
-<div class="auth-layout">
-<section class="auth-story">
-<div class="eyebrow">Staff access</div>
-<h2>See the detail.<br>Make things clear.</h2>
-<p>Simple steps. Clear information. A little more control over every move.</p>
-<p class="small-copy">Static sign-in preview. No credentials are collected or stored.</p>
-</section>
-<section class="auth-card">
-<div class="eyebrow">Fraud operations</div>
-<h1>Staff authentication</h1>
-<p>Sample FIDO2 operator access.</p>
-<div class="field">
-<label>Operator identifier<input type="text" value="JD-8820-RISK" readonly autocomplete="off">
-</label>
-</div>
-<div class="field">
-<label>Security passphrase<input type="password" value="sample-operator-key" readonly autocomplete="off">
-</label>
-</div>
-<div class="notice ">◇ YubiKey 5 NFC detected · illustrative</div>
-<a class="btn-wise btn-dark" href="admin.html">Authenticate terminal →</a>
-</section>
-</div>
-</div>
-</main>
-<div class="workspace-toast" id="toast" role="status" hidden>
-</div>
-<dialog id="previewDialog" class="preview-dialog">
-<button class="close-dialog" aria-label="Close dialog">×</button>
-<h2>Preview information</h2>
-<p id="dialogCopy">
-</p>
-<button class="btn-wise btn-dark" data-dialog-close>Got it</button>
-</dialog>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sign in — northBank</title><link rel="icon" href="../../assets/northbank-favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="../../css/signin.css"><script src="../../js/signin.js" defer></script></head>
+<body><main class="auth-shell">
+<div class="auth-modes" aria-label="Account access"><button class="mode-button" type="button" data-mode="login" aria-pressed="true" aria-controls="accessForm"><span>LOG<br>IN</span></button><button class="mode-button" type="button" data-mode="signup" aria-pressed="false" aria-controls="accessForm"><span>SIGN<br>UP</span></button></div>
+<section class="auth-content" aria-labelledby="formTitle"><a class="home-link" href="../home/home.html">← Home</a><div class="auth-form-wrap"><span class="access-badge">STAFF ACCESS</span><h1 id="formTitle" data-login-title="Sign in to your account">Sign in to your account</h1><p class="form-description" id="formDescription">Enter your registered email and password to proceed.</p>
+<form id="accessForm" action="admin.html" data-role="admin">
+<label class="auth-field" id="nameField" hidden>Full name<span class="input-line"><input name="name" value="Alex Morgan" readonly autocomplete="off"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3"/></svg></span></label>
+<label class="auth-field">Email address<span class="input-line"><input type="email" name="email" value="j.davis@northbank.com" readonly autocomplete="off"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="7" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3"/></svg></span></label>
+<label class="auth-field">Password<span class="input-line"><input type="password" name="password" value="sample-passphrase" readonly autocomplete="off"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V6a4 4 0 0 1 8 0v4"/></svg></span></label>
+<div class="form-options"><label class="remember"><input type="checkbox" name="remember">Remember me</label></div>
+<button class="submit-button" id="submitAccess" type="submit">Continue →</button><div class="help-links"><button class="forgot" type="button" id="forgotPassword">Forgot password?</button><button class="forgot" type="button" id="contactAssistance">Contact assistance</button></div><p class="mode-prompt"><span id="modePrompt">New to northBank?</span> <button class="mode-link" id="alternateMode" type="button">Open a new account →</button></p><p class="form-message" id="formMessage" role="status" hidden></p>
+</form><p class="preview-note">Preview only. Sample details are provided; no account is created and no credentials are collected.</p></div></section>
+</main></body></html>

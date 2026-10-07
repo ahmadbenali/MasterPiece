@@ -97,7 +97,7 @@ z-index:30;
 background:white;
 border-bottom:1px solid var(--line)}
 .workspace-nav{width:88%;
-min-height:88px;
+min-height:76px;
 margin:auto;
 display:flex;
 align-items:center;
@@ -698,7 +698,7 @@ margin-top:24px}
 gap:22px;
 flex-wrap:wrap}
 
-@media(min-width:1650px){.workspace-nav{min-height:96px}
+@media(min-width:1650px){.workspace-nav{min-height:80px}
 .workspace-links>a,.nav-more>summary{font-size:15px}
 .workspace-logo{width:110px}
 }
@@ -912,7 +912,7 @@ body{font-size:17px}
   .workspace-links>a,.nav-more>summary{position:relative;z-index:1;transition:background .38s cubic-bezier(.22,1,.36,1),box-shadow .38s cubic-bezier(.22,1,.36,1)}
   .workspace-links>a[aria-current=page],.nav-more.has-current>summary,.nav-more[open]>summary{
     background:var(--lime);border-radius:22px 22px 0 0;z-index:3;
-    align-self:stretch;margin-top:20px;display:flex;align-items:center;padding-bottom:20px;
+    align-self:stretch;margin-top:14px;display:flex;align-items:center;padding-bottom:14px;
     box-shadow:0 -4px 12px #16330008;animation:nav-tab-rise .48s cubic-bezier(.22,1,.36,1);
   }
   .nav-more.has-current,.nav-more[open]{align-self:stretch;display:flex;align-items:stretch}
@@ -959,10 +959,12 @@ body{font-size:17px}
 /* All workspace destinations are direct navigation links. */
 @media(min-width:1501px){
 .workspace-nav{width:96%;gap:14px}.workspace-brand{gap:10px}
-.workspace-links{gap:1px}.workspace-links>a{font-size:15px;padding-left:8px;padding-right:8px}
+.workspace-links{gap:3px}.workspace-links>a{font-size:15px;padding:11px 12px}
 .nav-actions{margin-left:8px}
 }
-.nav-logout{font-size:15px;padding:10px 16px}
+.nav-logout{font-size:15px;padding:11px 20px}
+.logout-dialog{width:min(460px,calc(100% - 32px))}
+.logout-dialog-actions{display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap;margin-top:24px}
 @media(max-width:1500px){
 .workspace-links{display:none;position:absolute;top:100%;left:0;right:0;margin:0;padding:20px 24px;background:white;border-bottom:1px solid var(--line);box-shadow:0 15px 25px #0e0f0c12;max-height:calc(100dvh - 96px);overflow:auto}
 .workspace-links.is-open{display:flex;flex-direction:column;align-items:stretch;gap:5px}

@@ -248,6 +248,28 @@ const duplicate = group.cloneNode(true);
 duplicate.setAttribute('aria-hidden', 'true');
 ribbon.append(duplicate);
 
+// Extend the green strip as it travels up the viewport; reverse on upward scroll.
+const currencyStrip = document.querySelector('.currency-ribbon');
+let ribbonFramePending = false;
+function updateRibbonPosition() {
+  ribbonFramePending = false;
+  const bounds = currencyStrip.getBoundingClientRect();
+  const progress = Math.max(0, Math.min(1, (window.innerHeight - bounds.top) / (window.innerHeight + bounds.height)));
+  const travel = Math.min(240, currencyStrip.clientWidth * 0.16);
+  currencyStrip.style.setProperty('--ribbon-travel', `${reducedMotion.matches ? 0 : progress * travel}px`);
+  currencyStrip.style.setProperty('--flag-roll', `${reducedMotion.matches ? 0 : progress * 240}deg`);
+}
+function scheduleRibbonPosition() {
+  if (ribbonFramePending) return;
+  ribbonFramePending = true;
+  requestAnimationFrame(updateRibbonPosition);
+}
+window.addEventListener('scroll', scheduleRibbonPosition, { passive: true });
+window.addEventListener('resize', scheduleRibbonPosition);
+window.addEventListener('pageshow', scheduleRibbonPosition);
+reducedMotion.addEventListener('change', scheduleRibbonPosition);
+updateRibbonPosition();
+
 // Staggered entrance and one-time scroll reveals, as in the supplied recording.
 const revealTargets = document.querySelectorAll('.section-intro, .trust-grid, .platform-feature, .security-grid > article, .mission-section h2, .app-panel');
 if (!reducedMotion.matches && 'IntersectionObserver' in window) {

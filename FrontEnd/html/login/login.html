@@ -1,58 +1,141 @@
 <!doctype html>
 <html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Choose your role — northBank showcase</title>
-<link rel="icon" href="../../assets/northbank-favicon.svg">
-<link rel="stylesheet" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" href="../../css/account.css">
-<link rel="stylesheet" href="../../css/workspace.css">
-</head>
-<body>
-<header class="account-nav">
-<a href="../home/home.html" aria-label="northBank home">
-<img src="../../assets/northbank-logo.svg" alt="northBank">
-</a>
-<a class="quiet-link" href="../home/home.html">← Back to home</a>
-</header>
-<main class="role-main">
-<div class="eyebrow">Welcome to northBank</div>
-<h1 class="role-title">Choose your space.</h1>
-<p class="intro">Select a role to explore the account preview.</p>
-<div class="role-grid">
-<article class="role-card">
-<div class="role-icon">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<circle cx="12" cy="8" r="4"/>
-<path d="M4 21v-2a8 8 0 0 1 16 0v2"/>
-</svg>
-</div>
-<h2>Personal account</h2>
-<p>Your money, at a glance. Explore balances and recent transfers in the User workspace.</p>
-<a class="pill" href="../user/user.html">Continue as User &nbsp; →</a>
-</article>
-<article class="role-card">
-<div class="role-icon">
-<svg viewBox="0 0 24 24" aria-hidden="true">
-<path d="M12 3 3 7v6c0 5 9 9 9 9s9-4 9-9V7z"/>
-<path d="m8 12 3 3 5-6"/>
-</svg>
-</div>
-<h2>Admin workspace</h2>
-<p>A clear view of platform activity. Explore users and transfers in the Admin workspace.</p>
-<a class="pill" href="../admin/admin.html">Continue as Admin &nbsp; →</a>
-</article>
-</div>
-<p class="demo-note">Preview access — no password or registration needed.</p>
-<div class="preview-intro">
-<p>Want to explore the prototype sign-in screens?</p>
-<div class="intro-links">
-<a class="text-link" href="../welcome/welcome.html">Customer sign-in flow →</a>
-<a class="text-link" href="../admin/admin-login.html">Staff sign-in flow →</a>
-</div>
-</div>
-</main>
-<footer class="account-footer">Independent static showcase. All displayed information is illustrative.</footer>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Sign in — northBank</title>
+    <link
+      rel="icon"
+      href="../../assets/northbank-favicon.svg"
+      type="image/svg+xml"
+    />
+    <link rel="stylesheet" href="../../css/signin.css" />
+    <script src="../../js/signin.js" defer></script>
+  </head>
+  <body>
+    <main class="auth-shell">
+      <div class="auth-modes" aria-label="Account access">
+        <button
+          class="mode-button"
+          type="button"
+          data-mode="login"
+          aria-pressed="true"
+          aria-controls="accessForm"
+        >
+          <span>LOG<br />IN</span></button
+        ><button
+          class="mode-button"
+          type="button"
+          data-mode="signup"
+          aria-pressed="false"
+          aria-controls="accessForm"
+        >
+          <span>SIGN<br />UP</span>
+        </button>
+      </div>
+      <section class="auth-content" aria-labelledby="formTitle">
+        <a class="home-link" href="../home/home.html"> Home</a>
+        <div class="auth-form-wrap">
+          <div class="access-header">
+            <span class="access-badge">CUSTOMER ACCESS</span>
+            <div class="role-buttons" aria-label="Login role">
+              <button
+                type="button"
+                class="role-button"
+                data-access-role="personal"
+                aria-pressed="true"
+              >
+                Log in as user</button
+              ><button
+                type="button"
+                class="role-button"
+                data-access-role="admin"
+                aria-pressed="false"
+              >
+                Log in as admin
+              </button>
+            </div>
+          </div>
+          <h1 id="formTitle" data-login-title="Sign in to your account">
+            Sign in to your account
+          </h1>
+          <p class="form-description" id="formDescription">
+            Enter your registered email and password to proceed.
+          </p>
+          <form id="accessForm" action="../user/user.html" data-role="choice">
+            <label class="auth-field"
+              >Account type<span class="input-line"
+                ><select id="accountRole" name="role">
+                  <option value="personal">Personal account</option>
+                  <option value="admin">Admin workspace</option>
+                </select></span
+              ></label
+            ><label class="auth-field" id="nameField" hidden
+              >Full name<span class="input-line"
+                ><input
+                  name="name"
+                  value="Alex Morgan"
+                  readonly
+                  autocomplete="off" /><svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="7" r="4" />
+                  <path d="M4 22v-3a8 8 0 0 1 16 0v3" /></svg></span
+            ></label>
+            <label class="auth-field"
+              >Email address<span class="input-line"
+                ><input
+                  type="email"
+                  name="email"
+                  value="alex.morgan@email.com"
+                  readonly
+                  autocomplete="off" /><svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <circle cx="12" cy="7" r="4" />
+                  <path d="M4 22v-3a8 8 0 0 1 16 0v3" /></svg></span
+            ></label>
+            <label class="auth-field"
+              >Password<span class="input-line"
+                ><input
+                  type="password"
+                  name="password"
+                  value="sample-passphrase"
+                  readonly
+                  autocomplete="off" /><svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <rect x="5" y="10" width="14" height="11" rx="2" />
+                  <path d="M8 10V6a4 4 0 0 1 8 0v4" /></svg></span
+            ></label>
+            <div class="form-options">
+              <label class="remember"
+                ><input type="checkbox" name="remember" />Remember me</label
+              >
+            </div>
+            <button class="submit-button" id="submitAccess" type="submit">
+              Continue 
+            </button>
+            <div class="help-links">
+              <button class="forgot" type="button" id="forgotPassword">
+                Forgot password?</button
+              ><button class="forgot" type="button" id="contactAssistance">
+                Contact assistance
+              </button>
+            </div>
+            <p class="mode-prompt">
+              <span id="modePrompt">New to northBank?</span>
+              <button class="mode-link" id="alternateMode" type="button">
+                Open a new account 
+              </button>
+            </p>
+            <p class="form-message" id="formMessage" role="status" hidden></p>
+          </form>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
