@@ -8,6 +8,8 @@
       content="A frontend recreation of the northBank Jordan homepage, built with HTML, CSS, Bootstrap and JavaScript."
     />
     <title>northBank — Money without borders</title>
+    <link rel="stylesheet" href="../../css/login-transition.css" />
+    <script src="../../js/login-transition.js"></script>
     <script src="../../js/appearance.js"></script>
     <link
       rel="icon"
@@ -46,7 +48,7 @@
             aria-expanded="false"
             aria-controls="platformMenu"
           >
-            Platform
+            Staff
           </button>
         </div>
         <div class="nav-end">
@@ -55,12 +57,10 @@
             id="localeButton"
             aria-label="Location and language"
           >
-            <img src="../../assets/jo.svg" alt="" /> EN</button
-          ><a href="https://wise.com/help/">Help</a
-          ><a href="../login/login.html">Log in</a>
+            <img src="../../assets/jo.svg" alt="" /> EN</button>
         </div>
-        <a href="../login/login.html?mode=signup" class="button button-dark nav-signup"
-          >Sign up</a
+        <a href="../login/login.html" class="button nav-signup login-pill"
+          aria-label="Login"><svg class="login-pill-shape" viewBox="0 0 140 40" aria-hidden="true"><path fill="white" d="M120 0 C131 0 140 9 140 20 C140 31 131 40 120 40 L64 40 C54 40 49 35 46 30 C44 26 44 23 44 20 C44 20 44 20 44 20 C44 20 44 20 44 20 C44 20 44 20 44 20 C44 20 44 20 44 20 C44 17 44 14 46 10 C49 5 54 0 64 0 Z"/></svg><span class="login-pill-label">Login</span><span class="login-pill-arrow" aria-hidden="true">↗</span></a
         ><button
           id="mobileToggle"
           class="mobile-toggle"
@@ -110,7 +110,7 @@
                 alt="City skyline at golden hour"
               />
               <div class="menu-card-body">
-                <h2>northBank Platform</h2>
+                <h2>northBank Staff</h2>
                 <p>
                   Where banks, financial institutions and enterprises can plug
                   into our network.
@@ -177,7 +177,7 @@
           aria-controls="mobilePlatformLinks"
           aria-expanded="false"
         >
-          Platform <span>+</span>
+          Staff <span>+</span>
         </button>
         <div class="mobile-submenu" id="mobilePlatformLinks" hidden>
           <a href="#platform">Send</a><a href="#platform">Receive</a
@@ -186,8 +186,7 @@
           ><a href="#platform">Industries</a
           ><a href="#platform">Explore API documentation</a>
         </div>
-        <a href="#rates">Pricing</a><a href="https://wise.com/help/">Help</a
-        ><a href="../login/login.html">Log in</a
+        <a href="#rates">Pricing</a><a href="../login/login.html">Log in</a
         ><button id="mobileLocale">
           <img src="../../assets/jo.svg" width="24" height="24" alt="" />
           Location and language
@@ -412,18 +411,18 @@
           <div class="col-md-6 platform-image">
             <img
               src="../../assets/platform.webp"
-              alt="northBank Platform partners: Monzo, N26, UniCredit and Raiffeisen Bank"
+              alt="northBank Staff partners: Monzo, N26, UniCredit and Raiffeisen Bank"
             />
           </div>
           <div class="col-md-6 platform-copy">
-            <h3>northBank Platform powers the world's money</h3>
+            <h3>northBank Staff powers the world's money</h3>
             <p>
               Bring fast, low-cost global transfers to more people. Our partners
               use northBank technology to help their customers move money around
               the world.
             </p>
             <a class="button button-dark" href="https://wise.com/platform/"
-              >Explore northBank Platform</a
+              >Explore northBank Staff</a
             >
           </div>
         </div>
@@ -672,7 +671,7 @@
             <div>
               <h2>Products</h2>
               <a href="#">northBank Personal</a
-              ><a href="https://wise.com/platform/">northBank Platform</a>
+              ><a href="https://wise.com/platform/">northBank Staff</a>
               <h2 class="footer-subheading">northBank Personal</h2>
               <a href="https://wise.com/jo/send-money"
                 >International money transfer</a

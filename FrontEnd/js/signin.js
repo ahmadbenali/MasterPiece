@@ -5,6 +5,10 @@ let currentMode = "login";
 function setMode(mode) {
   currentMode = mode;
   const signup = mode === "signup";
+  if (signup && roleButtons.length) {
+    selectedRole = "personal";
+    updateRole();
+  }
   const roleControls = document.querySelector(".role-buttons");
   if (roleControls) roleControls.hidden = signup;
   modeButtons.forEach((button) =>
@@ -42,27 +46,32 @@ document.getElementById("forgotPassword").addEventListener("click", () => {
 });
 const roleSelect = document.getElementById("accountRole");
 const roleButtons = [...document.querySelectorAll("[data-access-role]")];
+let selectedRole = roleSelect?.value || "personal";
 function updateRole() {
-  if (!roleSelect) return;
+  if (!roleSelect && !roleButtons.length) return;
   form.elements.email.value =
-    roleSelect.value === "admin"
+    selectedRole === "admin"
       ? "j.davis@northbank.com"
       : "alex.morgan@email.com";
   roleButtons.forEach((button) =>
     button.setAttribute(
       "aria-pressed",
-      String(button.dataset.accessRole === roleSelect.value),
+      String(button.dataset.accessRole === selectedRole),
     ),
   );
   const badge = document.querySelector(".access-badge");
   if (badge)
     badge.textContent =
-      roleSelect.value === "admin" ? "STAFF ACCESS" : "CUSTOMER ACCESS";
+      selectedRole === "admin" ? "STAFF ACCESS" : "CUSTOMER ACCESS";
 }
-roleSelect?.addEventListener("change", updateRole);
+roleSelect?.addEventListener("change", () => {
+  selectedRole = roleSelect.value;
+  updateRole();
+});
 roleButtons.forEach((button) =>
   button.addEventListener("click", () => {
-    roleSelect.value = button.dataset.accessRole;
+    selectedRole = button.dataset.accessRole;
+    if (roleSelect) roleSelect.value = selectedRole;
     setMode("login");
     updateRole();
   }),
@@ -70,8 +79,8 @@ roleButtons.forEach((button) =>
 updateRole();
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  const route = roleSelect
-    ? roleSelect.value === "admin"
+  const route = roleSelect || roleButtons.length
+    ? selectedRole === "admin"
       ? "../admin/admin.html"
       : "../user/user.html"
     : form.getAttribute("action");

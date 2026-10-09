@@ -308,3 +308,72 @@ function applyMotionPreference() {
 }
 reducedMotion.addEventListener('change', applyMotionPreference);
 applyMotionPreference();
+
+// Morph one SVG outline, keeping the label crisp and the right edge anchored.
+const loginPill = document.querySelector('.login-pill');
+if (loginPill) {
+  const outline = loginPill.querySelector('path');
+  const collapsed = outline.getAttribute('d');
+  const expanded = 'M120 0 C131 0 140 9 140 20 C140 31 131 40 120 40 L64 40 C54 40 49 35 44 30 C38 23 34 33 28 35 C25 37 22 38 18 38 C8 38 0 30 0 20 C0 10 8 2 18 2 C22 2 25 3 28 5 C34 7 38 17 44 10 C49 5 54 0 64 0 Z';
+  const numbers = /-?\d*\.?\d+/g;
+  const from = collapsed.match(numbers).map(Number);
+  const to = expanded.match(numbers).map(Number);
+  let progress = 0;
+  let target = 0;
+  let velocity = 0;
+  let frame = 0;
+  let previousTime = 0;
+  let hovered = false;
+  let focused = false;
+  function paint() {
+    let index = 0;
+    outline.setAttribute('d', collapsed.replace(numbers, () => {
+      const i = index++;
+      return (from[i] + (to[i] - from[i]) * progress).toFixed(3);
+    }));
+    loginPill.style.setProperty('--login-morph', Math.max(0, Math.min(1, progress)));
+  }
+  function tick(time) {
+    const dt = Math.min((time - previousTime) / 1000 || 1 / 60, 1 / 30);
+    previousTime = time;
+    // A near-critically damped spring settles in about 450ms; preserve velocity
+    // on direction changes so rapid pointer movement never restarts the morph.
+    const steps = Math.ceil(dt / .008);
+    for (let i = 0; i < steps; i++) {
+      const step = dt / steps;
+      velocity += ((target - progress) * 300 - velocity * 32) * step;
+      progress += velocity * step;
+    }
+    if (Math.abs(target - progress) < .001 && Math.abs(velocity) < .01) {
+      progress = target;
+      velocity = 0;
+      frame = 0;
+      paint();
+      return;
+    }
+    paint();
+    frame = requestAnimationFrame(tick);
+  }
+  function updateLoginPill() {
+    target = hovered || focused ? 1 : 0;
+    if (reducedMotion.matches) {
+      cancelAnimationFrame(frame);
+      frame = 0;
+      progress = target;
+      velocity = 0;
+      paint();
+    } else if (!frame) {
+      previousTime = performance.now();
+      frame = requestAnimationFrame(tick);
+    }
+  }
+  loginPill.addEventListener('pointerenter', event => {
+    if (event.pointerType === 'touch') return;
+    hovered = true;
+    updateLoginPill();
+  });
+  loginPill.addEventListener('pointerleave', () => { hovered = false; updateLoginPill(); });
+  loginPill.addEventListener('focus', () => { focused = true; updateLoginPill(); });
+  loginPill.addEventListener('blur', () => { focused = false; updateLoginPill(); });
+  reducedMotion.addEventListener('change', updateLoginPill);
+}

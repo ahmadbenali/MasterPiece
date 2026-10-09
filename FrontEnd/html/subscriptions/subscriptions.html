@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="../../css/workspace.css">
 <script src="../../js/workspace.js" defer>
 </script>
+<script src="../../js/subscriptions.js" defer></script>
 <link rel="stylesheet" href="../../css/arrows.css"><script src="../../js/arrows.js" defer></script></head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
@@ -72,7 +73,7 @@
 <span class="status-badge ">Active</span>
 </td>
 <td>
-<button class="btn-wise btn-outline" data-toast="Subscription management is a visual preview only.">Manage</button>
+<button type="button" class="subscription-switch" role="switch" aria-checked="true" aria-label="Streaming Plus recurring payments" data-subscription="Streaming Plus"><span aria-hidden="true"></span></button>
 </td>
 </tr>
 <tr>
@@ -83,7 +84,7 @@
 <span class="status-badge ">Active</span>
 </td>
 <td>
-<button class="btn-wise btn-outline" data-toast="Subscription management is a visual preview only.">Manage</button>
+<button type="button" class="subscription-switch" role="switch" aria-checked="true" aria-label="Cloud Storage recurring payments" data-subscription="Cloud Storage"><span aria-hidden="true"></span></button>
 </td>
 </tr>
 <tr>
@@ -94,7 +95,7 @@
 <span class="status-badge ">Active</span>
 </td>
 <td>
-<button class="btn-wise btn-outline" data-toast="Subscription management is a visual preview only.">Manage</button>
+<button type="button" class="subscription-switch" role="switch" aria-checked="true" aria-label="Fitness Studio recurring payments" data-subscription="Fitness Studio"><span aria-hidden="true"></span></button>
 </td>
 </tr>
 </tbody>
@@ -117,6 +118,14 @@
 <p id="dialogCopy">
 </p>
 <button class="btn-wise btn-dark" data-dialog-close>Got it</button>
+</dialog>
+<dialog id="subscriptionDialog" class="preview-dialog subscription-dialog" aria-labelledby="subscriptionTitle" aria-describedby="subscriptionDescription">
+<h2 id="subscriptionTitle">Change subscription?</h2>
+<p id="subscriptionDescription"></p>
+<form method="dialog" class="subscription-dialog-actions">
+<button type="submit" value="cancel" class="btn-wise btn-outline" autofocus>Cancel</button>
+<button type="submit" value="confirm" class="btn-wise btn-dark" id="confirmSubscription">Confirm</button>
+</form>
 </dialog>
 </body>
 </html>

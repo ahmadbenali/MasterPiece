@@ -1,0 +1,10 @@
+.ui-arrow{display:inline-block;width:1.35em;height:1.35em;vertical-align:middle;flex-shrink:0}
+.ui-arrow-left{transform:rotate(180deg)}
+.ui-arrow-up{transform:rotate(-90deg)}
+.ui-arrow-down{transform:rotate(90deg)}
+.ui-arrow-up-right{transform:rotate(-45deg)}
+.ui-arrow-down-right{transform:rotate(45deg)}
+.ui-arrow-down-left{transform:rotate(135deg)}
+.ui-arrow-up-left{transform:rotate(-135deg)}
+.login-pill-arrow .ui-arrow{width:20px;height:20px}
+.carousel-buttons button .ui-arrow{width:55%;height:55%}

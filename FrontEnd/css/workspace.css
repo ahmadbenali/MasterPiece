@@ -973,3 +973,16 @@ body{font-size:17px}
 .nav-actions{margin-left:auto}.nav-toggle{display:block}
 }
 @media(max-width:600px){.nav-actions>.nav-logout{display:inline-flex;padding:8px 12px}}
+
+/* iOS-style recurring payment controls. */
+.subscription-switch{position:relative;display:inline-block;vertical-align:middle;width:58px;height:44px;padding:0;border:0;background:transparent;border-radius:999px;cursor:pointer;touch-action:manipulation}
+.subscription-switch::before{content:'';position:absolute;inset:6px 0;background:#e3e5e8;border-radius:999px;transition:background-color 240ms ease}
+.subscription-switch[aria-checked=true]::before{background:#34c759}
+.subscription-switch>span{position:absolute;left:2px;top:8px;width:28px;height:28px;border-radius:50%;background:#fff;box-shadow:0 2px 5px #0003;transform:translateX(0);transition:transform 260ms cubic-bezier(.2,.8,.2,1)}
+.subscription-switch[aria-checked=true]>span{transform:translateX(26px)}
+.subscription-switch:active>span{width:31px}
+.subscription-switch[aria-checked=true]:active>span{transform:translateX(23px)}
+.subscription-switch:focus-visible{outline:3px solid var(--forest,#163300);outline-offset:3px}
+.subscription-dialog{width:min(460px,calc(100% - 32px))}
+.subscription-dialog-actions{display:flex;justify-content:flex-end;gap:12px;flex-wrap:wrap;margin-top:24px}
+@media(prefers-reduced-motion:reduce){.subscription-switch::before,.subscription-switch>span{transition:none}}

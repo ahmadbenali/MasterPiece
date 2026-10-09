@@ -123,3 +123,12 @@
 .ribbon-flags img{transform:rotate(var(--flag-roll,0deg));will-change:transform}
 @media(max-width:600px){.currency-ribbon{gap:18px}.ribbon-arrow{flex-basis:calc(120px + var(--ribbon-travel,0px))}}
 .ribbon-arrow::after{content:'';background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Cpath d='M8 40H66M42 16L66 40L42 64' fill='none' stroke='%239fe870' stroke-width='6' stroke-linecap='butt' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:55% 55%}
+
+/* One continuous hit area includes the full liquid expansion. */
+.site-header .login-pill{position:relative;isolation:isolate;flex:0 0 140px;width:140px;min-width:140px;height:40px;padding:0 0 0 44px;margin-left:8px;border:0;border-radius:999px;background:transparent;color:#20251f;font-size:14px;font-weight:400;line-height:1;text-decoration:none;overflow:visible;transform:none;box-shadow:none;--login-morph:0}
+.site-header .login-pill:hover,.site-header .login-pill:focus-visible{background:transparent;color:#20251f;transform:none;text-decoration:none}
+.site-header .login-pill:focus-visible{outline:2px solid var(--forest);outline-offset:5px}
+.login-pill-shape{position:absolute;inset:0;width:140px;height:40px;pointer-events:none;z-index:-1;overflow:visible}
+.login-pill-label{position:relative;display:grid;place-items:center;width:96px;height:40px;pointer-events:none}
+.login-pill-arrow{position:absolute;left:0;top:0;display:grid;place-items:center;width:36px;height:40px;font-size:19px;font-weight:400;opacity:var(--login-morph);transform:translateX(calc((1 - var(--login-morph))*26px));pointer-events:none}
+@media(max-width:768px){.site-header .login-pill{margin-left:0}}

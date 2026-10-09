@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Sign in — northBank</title>
+    <link rel="stylesheet" href="../../css/login-transition.css" />
+    <script src="../../js/login-transition.js"></script>
     <link
       rel="icon"
       href="../../assets/northbank-favicon.svg"
@@ -63,14 +65,7 @@
             Enter your registered email and password to proceed.
           </p>
           <form id="accessForm" action="../user/user.html" data-role="choice">
-            <label class="auth-field"
-              >Account type<span class="input-line"
-                ><select id="accountRole" name="role">
-                  <option value="personal">Personal account</option>
-                  <option value="admin">Admin workspace</option>
-                </select></span
-              ></label
-            ><label class="auth-field" id="nameField" hidden
+            <label class="auth-field" id="nameField" hidden
               >Full name<span class="input-line"
                 ><input
                   name="name"
