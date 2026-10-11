@@ -14,8 +14,16 @@
     <link rel="stylesheet" href="../../css/signin.css" />
     <script src="../../js/signin.js" defer></script>
   <link rel="stylesheet" href="../../css/arrows.css"><script src="../../js/arrows.js" defer></script></head>
-  <body>
+  <body class="reference-auth">
     <main class="auth-shell">
+      <aside class="auth-aside" aria-label="Welcome to northBank">
+        <div class="auth-paths" aria-hidden="true"></div>
+        <a class="auth-brand" href="../home/home.html" aria-label="northBank home"><img src="../../assets/northbank-logo.svg" alt="northBank" /></a>
+        <figure class="auth-story"><blockquote>Your money.<br />A world of <em>possibilities.</em></blockquote><figcaption>Move forward with northBank.</figcaption></figure>
+      </aside>
+      <section class="auth-content" aria-labelledby="formTitle">
+        <a class="home-link" href="../home/home.html"> Home</a>
+        <div class="auth-form-wrap">
       <div class="auth-modes" aria-label="Account access">
         <button
           class="mode-button"
@@ -24,7 +32,7 @@
           aria-pressed="true"
           aria-controls="accessForm"
         >
-          <span>LOG<br />IN</span></button
+          <span>Log in</span></button
         ><button
           class="mode-button"
           type="button"
@@ -32,15 +40,13 @@
           aria-pressed="false"
           aria-controls="accessForm"
         >
-          <span>SIGN<br />UP</span>
+          <span>Sign up</span>
         </button>
       </div>
-      <section class="auth-content" aria-labelledby="formTitle">
-        <a class="home-link" href="../home/home.html"> Home</a>
-        <div class="auth-form-wrap">
+
           <div class="access-header">
             <span class="access-badge">CUSTOMER ACCESS</span>
-            <div class="role-buttons" aria-label="Login role">
+            <div class="role-buttons" aria-label="Access role">
               <button
                 type="button"
                 class="role-button"

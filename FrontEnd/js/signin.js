@@ -5,12 +5,12 @@ let currentMode = "login";
 function setMode(mode) {
   currentMode = mode;
   const signup = mode === "signup";
-  if (signup && roleButtons.length) {
-    selectedRole = "personal";
-    updateRole();
-  }
   const roleControls = document.querySelector(".role-buttons");
-  if (roleControls) roleControls.hidden = signup;
+  if (roleControls) roleControls.hidden = false;
+  roleButtons.forEach(button => {
+    const role = button.dataset.accessRole === 'admin' ? 'admin' : 'user';
+    button.textContent = `${signup ? 'Sign up' : 'Log in'} as ${role}`;
+  });
   modeButtons.forEach((button) =>
     button.setAttribute("aria-pressed", String(button.dataset.mode === mode)),
   );
@@ -72,7 +72,6 @@ roleButtons.forEach((button) =>
   button.addEventListener("click", () => {
     selectedRole = button.dataset.accessRole;
     if (roleSelect) roleSelect.value = selectedRole;
-    setMode("login");
     updateRole();
   }),
 );
@@ -94,3 +93,24 @@ document.getElementById("contactAssistance").addEventListener("click", () => {
   message.textContent = "Contact assistance is unavailable in this preview.";
   message.hidden = false;
 });
+
+// Decorative floating paths from Hirael Login 03 (Mohammad Shehadeh, MIT).
+const pathContainer = document.querySelector('.auth-paths');
+if (pathContainer) {
+  for (const position of [1, -1]) {
+    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    svg.setAttribute('viewBox', '0 0 696 316');
+    svg.setAttribute('fill', 'none');
+    for (let i = 0; i < 36; i++) {
+      const path = document.createElementNS(svg.namespaceURI, 'path');
+      path.setAttribute('d', `M-${380-i*5*position} -${189+i*6}C-${380-i*5*position} -${189+i*6} -${312-i*5*position} ${216-i*6} ${152-i*5*position} ${343-i*6}C${616-i*5*position} ${470-i*6} ${684-i*5*position} ${875-i*6} ${684-i*5*position} ${875-i*6}`);
+      path.setAttribute('stroke', 'currentColor');
+      path.setAttribute('stroke-width', .5+i*.03);
+      path.setAttribute('stroke-opacity', Math.min(.32, .06+i*.008));
+      path.setAttribute('pathLength', '1');
+      path.style.setProperty('--flow-time', `${20+(Math.sin(i+1)*10000%1+1)%1*10}s`);
+      svg.append(path);
+    }
+    pathContainer.append(svg);
+  }
+}

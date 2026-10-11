@@ -56,7 +56,7 @@
         { clipPath: `circle(0px at ${x}px ${y}px)` },
         { clipPath: `circle(${Math.ceil(radius)}px at ${x}px ${y}px)` }
       ], {
-        duration: 1800,
+        duration: 1200,
         easing: 'cubic-bezier(0.4, 0, 0.2, 1)',
         fill: 'both',
         pseudoElement: '::view-transition-new(root)'

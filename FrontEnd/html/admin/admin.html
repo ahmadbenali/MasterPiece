@@ -1,134 +1,49 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Static banking interface preview with the northBank homepage design style">
-<title>Every transfer.<br>A clearer view. — northBank showcase</title>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="northBank fraud operations dashboard">
+<title>Admin overview — northBank</title>
 <link rel="icon" href="../../assets/northbank-favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" href="../../css/workspace.css">
-<script src="../../js/workspace.js" defer>
-</script>
-<link rel="stylesheet" href="../../css/arrows.css"><script src="../../js/arrows.js" defer></script></head>
-<body>
+<link rel="stylesheet" href="../../css/workspace.css"><link rel="stylesheet" href="../../css/admin-dashboard.css">
+<link rel="stylesheet" href="../../css/arrows.css">
+<script src="../../js/workspace.js" defer></script><script src="../../js/arrows.js" defer></script><script src="../../js/admin-dashboard.js" defer></script><script src="../../js/admin-shell.js" defer></script>
+</head>
+<body class="admin-dashboard">
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="workspace-header">
-<nav class="workspace-nav" aria-label="Admin navigation">
-<div class="workspace-brand">
-<a href="../home/home.html" aria-label="northBank home">
-<img class="workspace-logo" src="../../assets/northbank-logo.svg" alt="northBank">
-</a>
-<span class="workspace-label">Admin</span>
-</div>
-<div class="workspace-links" id="workspaceLinks">
-<a href="admin.html" aria-current="page">Overview</a>
-<a href="admin-stream.html">Live stream</a>
-<a href="admin-flagged.html">Flagged</a>
-<a href="admin-cases.html">Cases</a>
-<a href="admin-reports.html">Reports</a>
-<a href="admin-investigation.html">Investigation</a>
-<a href="admin-assessment.html">AI assessment</a>
-<a href="admin-decision.html">Decision desk</a>
-<a href="admin-credentials.html">Staff credentials</a>
-</div>
-<div class="nav-actions">
-<a class="btn-wise btn-outline nav-logout" href="../login/login.html" data-logout>Logout</a>
-</div>
-<button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="workspaceLinks">☰</button>
+<aside class="admin-sidebar">
+<a class="admin-brand" href="../home/home.html"><img src="../../assets/northbank-favicon.svg" alt=""><span>northBank<span class="brand-caption">OPERATIONS</span></span></a>
+<button class="admin-mobile-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="workspaceLinks">☰</button>
+<nav class="admin-navigation" id="workspaceLinks" aria-label="Admin navigation">
+<p class="nav-section-label">WORKSPACE</p>
+<a href="admin.html" aria-current="page"><span aria-hidden="true">▦</span> Overview</a>
+<a href="admin-stream.html"><span aria-hidden="true">↔</span> Live stream <small>128</small></a>
+<a href="admin-flagged.html"><span aria-hidden="true">⚑</span> Flagged transactions <small>18</small></a>
+<a href="admin-cases.html"><span aria-hidden="true">▤</span> Case management</a>
+<a href="admin-reports.html"><span aria-hidden="true">▥</span> Reports</a>
+<p class="nav-section-label">INTELLIGENCE</p>
+<a href="admin-investigation.html"><span aria-hidden="true">◎</span> Investigation</a>
+<a href="admin-assessment.html"><span aria-hidden="true">✧</span> AI assessment</a>
+<a href="admin-decision.html"><span aria-hidden="true">⑂</span> Decision desk</a>
+<p class="nav-section-label">SETTINGS</p>
+<a href="admin-credentials.html"><span aria-hidden="true">⚙</span> Staff credentials</a>
+<a href="../login/login.html" data-logout><span aria-hidden="true">↗</span> Log out</a>
 </nav>
-</header>
-<main id="main" class="workspace-main">
-<section class="page-hero">
-<div class="page-wrap">
-<div class="hero-topline">
-<div class="eyebrow">Fraud operations · Admin workspace</div>
-<span class="status-badge dark">● Station active</span>
+<div class="sidebar-bottom"><div class="station-card"><span class="live-dot"></span><div>Station is active<small>All systems operational</small></div></div><div class="admin-profile"><span class="avatar">JD</span><div>Jordan Davis<small>Fraud operations analyst</small></div><span class="profile-mark">✓</span></div></div>
+</aside>
+<main id="main" class="admin-main">
+<header class="admin-topbar"><div><span class="breadcrumb">Workspace /</span> Overview</div><div class="topbar-actions"><a class="quiet-button" href="admin-reports.html">▥ <span>Reports</span></a><span class="date-label" id="dashboardDate">Operations desk</span><label class="admin-tool-search"><span aria-hidden="true">⌕</span><input type="search" placeholder="Search admin tools…" aria-label="Search admin tools"></label><a class="notification-button" href="admin-flagged.html" aria-label="18 flagged transactions">♧<i></i></a><span class="avatar small-avatar" aria-label="Jordan Davis">JD</span></div></header>
+<div class="dashboard-heading"><div><p class="eyebrow">YOUR OPERATIONS, AT A GLANCE</p><h1>Operations overview</h1><p>Welcome back, Jordan. Here’s what needs your attention.</p></div><span class="demo-label"><span class="live-dot"></span> Sample workspace</span></div>
+<div class="dashboard-grid">
+<section class="dashboard-card processed-card"><div class="card-heading"><h2>Transactions processed</h2><a href="admin-stream.html" aria-label="Open live stream">↗</a></div><div class="metric">1,284 <span class="trend">↗ 12.4%</span></div><p class="metric-caption">Today’s activity <span>vs. previous day</span></p><a class="intelligence-banner" href="admin-assessment.html"><span class="banner-kicker">NORTHBANK INTELLIGENCE</span><strong>One step ahead<br>of every risk.</strong><span>Explore AI assessment ↗</span><svg viewBox="0 0 280 150" aria-hidden="true"><defs><linearGradient id="crystal" x2="1" y2="1"><stop stop-color="#92f4e4"/><stop offset="1" stop-color="#087e80"/></linearGradient></defs><g fill="url(#crystal)" stroke="#74e4d5" stroke-width=".7"><path d="M140 142 60 63 120 80 135 14 166 66 221 34 191 102 266 95Z"/><path d="M140 142 24 105 86 96 60 63Z"/><path d="M140 142 135 14 166 66Z"/><path d="M140 142 221 34 191 102Z"/><path d="M140 142 266 95 213 142Z"/></g></svg></a></section>
+<section class="dashboard-card"><div class="card-heading"><h2>Risk &amp; response metrics</h2><a href="admin-flagged.html" aria-label="View flagged transactions">↗</a></div><div class="metric">18 <span class="subtle-chip">1.4% flagged</span></div><p class="metric-caption">Transactions requiring review</p><div class="split-metrics"><div><strong>7</strong><span>Open cases</span></div><div><strong>4m 12s</strong><span>Average response</span></div></div><div class="review-progress"><div><span>Daily reviews completed</span><strong>80%</strong></div><div class="progress-track"><span></span></div></div><div class="analyst-row"><div class="avatar-stack"><span>JD</span><span>AK</span><span>ML</span><span>SR</span></div><p>4 analysts on duty</p><a class="round-button" href="admin-cases.html" aria-label="Open case queue">↗</a></div></section>
+<section class="dashboard-card"><div class="card-heading"><h2>Transaction health</h2><label class="period-label"><span class="sr-only">Chart period</span><select id="chartPeriod"><option value="today">Today</option><option value="week">This week</option></select></label></div><div class="health-layout"><div class="health-ring" role="img" aria-label="98.6 percent of transactions cleared"><div><strong>98.6<span>%</span></strong><small>Cleared</small></div></div><div class="chart-legend"><span><i></i> Cleared <strong>98.6%</strong></span><span><i></i> In review <strong>1.2%</strong></span><span><i></i> Blocked <strong>0.2%</strong></span></div></div><div class="line-chart"><svg viewBox="0 0 360 85" role="img" aria-label="Illustrative cleared transaction activity trend"><defs><linearGradient id="chartFill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#19b843" stop-opacity=".22"/><stop offset="1" stop-color="#19b843" stop-opacity="0"/></linearGradient></defs><path id="trendArea" d="M0 68C35 65 45 75 75 61S110 62 140 45S190 64 210 42S250 20 280 28S325 8 360 12V85H0Z" fill="url(#chartFill)"/><path d="M0 65C45 66 65 80 100 69S160 74 195 37S240 2 270 50S320 68 360 62" fill="none" stroke="#c6d824" stroke-width="2"/><path d="M0 70C40 80 75 84 110 76S170 58 200 58S255 78 290 66S330 64 360 69" fill="none" stroke="#33b39a" stroke-width="2"/><path id="trendLine" d="M0 68C35 65 45 75 75 61S110 62 140 45S190 64 210 42S250 20 280 28S325 8 360 12" fill="none" stroke="#19b843" stroke-width="2.5"/></svg><div class="chart-axis" id="chartAxis"><span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span></div></div></section>
+<section class="dashboard-card duty-card"><div class="card-heading"><h2>Your duty desk</h2><a href="admin-cases.html" aria-label="View assigned cases">↗</a></div><p class="metric-caption">Cases closed today</p><div class="metric">28 <span class="trend">↗ 8%</span></div><div class="workload-label"><span>Team workload</span><span>7 active cases</span></div><div class="workload-bar"><span></span><span></span><span></span><span></span></div><div class="workload-legend"><span>● Investigation <b>4</b></span><span>● Assessment <b>2</b></span><span>● Decision <b>1</b></span></div><a class="sla-note" href="admin-cases.html"><span class="clock-icon">◷</span><span><strong>You’re on track</strong><small>14 minutes remaining in triage SLA</small></span>↗</a></section>
+<section class="dashboard-card activity-card"><div class="card-heading"><h2>Recent transactions</h2><a href="admin-stream.html" aria-label="View all transactions">↗</a></div><label class="transaction-search"><span aria-hidden="true">⌕</span><input type="search" id="transactionSearch" placeholder="Search transactions…" aria-label="Search recent transactions"></label><div class="activity-tabs" aria-label="Filter transactions"><button type="button" data-filter="all" aria-pressed="true">All activity</button><button type="button" data-filter="review" aria-pressed="false">In review</button><button type="button" data-filter="cleared" aria-pressed="false">Cleared</button></div><div class="admin-table-wrap"><table class="admin-table"><thead><tr><th scope="col">Transaction</th><th scope="col">Amount</th><th scope="col">Status</th></tr></thead><tbody><tr data-status="review"><td><a href="admin-investigation-2048.html">TX-2048 <small>Velocity &amp; geofence</small></a></td><td>$4,800.00</td><td><span class="table-status review">Review</span></td></tr><tr data-status="cleared"><td>TX-2047 <small>Domestic transfer</small></td><td>$320.00</td><td><span class="table-status">Cleared</span></td></tr><tr data-status="review"><td><a href="admin-investigation.html">TX-2046 <small>Unusual device</small></a></td><td>$1,250.00</td><td><span class="table-status review">Review</span></td></tr><tr data-status="cleared"><td>TX-2045 <small>Card payment</small></td><td>$89.50</td><td><span class="table-status">Cleared</span></td></tr></tbody></table><p class="empty-transactions" id="emptyTransactions" hidden>No matching transactions.</p></div></section>
+<section class="dashboard-card assistant-card"><div class="card-heading"><h2>✧ Operations assistant</h2><span class="assistant-badge">AI</span></div><div class="assistant-orb" aria-hidden="true">✧</div><h3>A little more insight.</h3><p>Find the signal. Focus on what matters.</p><div class="assistant-message">What should I prioritize<br>for my next review?</div><div class="assistant-answer"><span>✧</span><p>Start with <strong>TX-2048</strong>. A velocity spike and novel geofence have raised its risk score to <strong>0.91</strong>.</p></div><a class="dashboard-primary" href="admin-investigation-2048.html">Review priority case ↗</a><a class="assistant-secondary" href="admin-assessment.html">Open AI assessment ↗</a></section>
 </div>
-<h1 class="display-title">Every transfer.<br>A clearer view.</h1>
-<p>Monitor sample activity, prioritize alerts, and keep investigations moving.</p>
-</div>
-</section>
-<div class="page-wrap content-area">
-<div class="grid-four">
-<article class="stat-card featured">
-<div class="eyebrow">Processed</div>
-<strong>1,284</strong>
-<small>Sample transactions today</small>
-</article>
-<article class="stat-card ">
-<div class="eyebrow">Flagged</div>
-<strong>18</strong>
-<small>Requires review</small>
-</article>
-<article class="stat-card ">
-<div class="eyebrow">Open cases</div>
-<strong>7</strong>
-<small>Active investigations</small>
-</article>
-<article class="stat-card ">
-<div class="eyebrow">Mean SLA</div>
-<strong>4m 12s</strong>
-<small>Average response time</small>
-</article>
-</div>
-<div class="grid-two">
-<section class="card-wise ">
-<h2>Priority intercept</h2>
-<article class="risk-alert">
-<div class="card-top">
-<strong>TX-2048 · $4,800.00</strong>
-<span class="status-badge danger">Risk 0.91</span>
-</div>
-<p>Velocity &amp; novel geofence spike. Review the sample transaction telemetry.</p>
-<a class="btn-wise btn-dark" href="admin-investigation-2048.html">Investigate TX-2048 →</a>
-</article>
-</section>
-<section class="card-wise ">
-<h2>Your duty desk</h2>
-<dl class="summary-list">
-<div>
-<dt>Assigned cases</dt>
-<dd>7 active</dd>
-</div>
-<div>
-<dt>Closed today</dt>
-<dd>28</dd>
-</div>
-<div>
-<dt>Triage SLA</dt>
-<dd>14 minutes remaining</dd>
-</div>
-</dl>
-<div class="mt-4">
-<a class="btn-wise btn-outline" href="admin-cases.html">Open case queue →</a>
-</div>
-</section>
-</div>
-<section class="card-wise ">
-<h2>A little more visibility</h2>
-<div class="button-row">
-<a class="btn-wise btn-outline" href="admin-stream.html">Live fraud stream ↗</a>
-<a class="btn-wise btn-outline" href="admin-flagged.html">Flagged ledger ↗</a>
-<a class="btn-wise btn-outline" href="admin-reports.html">Compliance reports ↗</a>
-</div>
-</section>
-</div>
+<footer class="admin-footer"><span>© 2026 northBank · Operations workspace</span><span>Illustrative data and actions · Static preview</span></footer>
 </main>
-<footer class="workspace-footer">
-<div class="page-wrap">
-<span>© 2026 · Independent static showcase. Static banking design preview.</span>
-<span>All balances, identities and actions are illustrative.</span>
-</div>
-</footer>
-<div class="workspace-toast" id="toast" role="status" hidden>
-</div>
-<dialog id="previewDialog" class="preview-dialog">
-<button class="close-dialog" aria-label="Close dialog">×</button>
-<h2>Preview information</h2>
-<p id="dialogCopy">
-</p>
-<button class="btn-wise btn-dark" data-dialog-close>Got it</button>
-</dialog>
-</body>
-</html>
+<div class="workspace-toast" id="toast" role="status" hidden></div>
+<dialog id="previewDialog" class="preview-dialog"><button class="close-dialog" aria-label="Close dialog">×</button><h2>Preview information</h2><p id="dialogCopy"></p><button class="btn-wise btn-dark" data-dialog-close>Got it</button></dialog>
+</body></html>

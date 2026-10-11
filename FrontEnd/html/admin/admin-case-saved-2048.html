@@ -10,35 +10,30 @@
 <link rel="stylesheet" href="../../css/workspace.css">
 <script src="../../js/workspace.js" defer>
 </script>
-<link rel="stylesheet" href="../../css/arrows.css"><script src="../../js/arrows.js" defer></script></head>
-<body>
+<link rel="stylesheet" href="../../css/arrows.css"><script src="../../js/arrows.js" defer></script><link rel="stylesheet" href="../../css/admin-dashboard.css"><script src="../../js/admin-shell.js" defer></script></head>
+<body class="admin-dashboard admin-workspace-page">
 <a class="skip-link" href="#main">Skip to content</a>
-<header class="workspace-header">
-<nav class="workspace-nav" aria-label="Admin navigation">
-<div class="workspace-brand">
-<a href="../home/home.html" aria-label="northBank home">
-<img class="workspace-logo" src="../../assets/northbank-logo.svg" alt="northBank">
-</a>
-<span class="workspace-label">Admin</span>
-</div>
-<div class="workspace-links" id="workspaceLinks">
-<a href="admin.html">Overview</a>
-<a href="admin-stream.html">Live stream</a>
-<a href="admin-flagged.html">Flagged</a>
-<a href="admin-cases.html" aria-current="page">Cases</a>
-<a href="admin-reports.html">Reports</a>
-<a href="admin-investigation.html">Investigation</a>
-<a href="admin-assessment-2048.html">AI assessment</a>
-<a href="admin-decision-2048.html">Decision desk</a>
-<a href="admin-credentials.html">Staff credentials</a>
-</div>
-<div class="nav-actions">
-<a class="btn-wise btn-outline nav-logout" href="../login/login.html" data-logout>Logout</a>
-</div>
-<button class="nav-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="workspaceLinks">☰</button>
+<aside class="admin-sidebar">
+<a class="admin-brand" href="../home/home.html"><img src="../../assets/northbank-favicon.svg" alt=""><span>northBank<span class="brand-caption">OPERATIONS</span></span></a>
+<button class="admin-mobile-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="workspaceLinks">☰</button>
+<nav class="admin-navigation" id="workspaceLinks" aria-label="Admin navigation">
+<p class="nav-section-label">WORKSPACE</p>
+<a href="admin.html"><span aria-hidden="true">▦</span> Overview</a>
+<a href="admin-stream.html"><span aria-hidden="true">↔</span> Live stream <small>128</small></a>
+<a href="admin-flagged.html"><span aria-hidden="true">⚑</span> Flagged transactions <small>18</small></a>
+<a href="admin-cases.html" aria-current="page"><span aria-hidden="true">▤</span> Case management</a>
+<a href="admin-reports.html"><span aria-hidden="true">▥</span> Reports</a>
+<p class="nav-section-label">INTELLIGENCE</p>
+<a href="admin-investigation.html"><span aria-hidden="true">◎</span> Investigation</a>
+<a href="admin-assessment.html"><span aria-hidden="true">✧</span> AI assessment</a>
+<a href="admin-decision.html"><span aria-hidden="true">⑂</span> Decision desk</a>
+<p class="nav-section-label">SETTINGS</p>
+<a href="admin-credentials.html"><span aria-hidden="true">⚙</span> Staff credentials</a>
+<a href="../login/login.html" data-logout><span aria-hidden="true">↗</span> Log out</a>
 </nav>
-</header>
-<main id="main" class="workspace-main">
+<div class="sidebar-bottom"><div class="station-card"><span class="live-dot"></span><div>Station is active<small>All systems operational</small></div></div><div class="admin-profile"><span class="avatar">JD</span><div>Jordan Davis<small>Fraud operations analyst</small></div><span class="profile-mark">✓</span></div></div>
+</aside>
+<main id="main" class="workspace-main admin-main"><header class="admin-topbar"><div><span class="breadcrumb">Workspace /</span> Case saved</div><div class="topbar-actions"><a class="quiet-button" href="admin-reports.html">▥ <span>Reports</span></a><span class="date-label" id="dashboardDate">Operations desk</span><label class="admin-tool-search"><span aria-hidden="true">⌕</span><input type="search" placeholder="Search admin tools…" aria-label="Search admin tools"></label><a class="notification-button" href="admin-flagged.html" aria-label="18 flagged transactions">♧<i></i></a><span class="avatar small-avatar" aria-label="Jordan Davis">JD</span></div></header>
 <section class="page-hero">
 <div class="page-wrap">
 <div class="hero-topline">
