@@ -1,4 +1,23 @@
 // Static presentation controls only. No authentication, APIs or data storage.
+// Shared entrance and hover motion for user workspace panels only.
+(() => {
+  if (!document.querySelector('nav[aria-label="User navigation"]')) return;
+  const selector = '.card-wise,.stat-card';
+  const cards = [...document.querySelectorAll('main .card-wise,main .stat-card')]
+    .filter(card => !card.parentElement.closest(selector));
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
+  cards.forEach((card, index) => {
+    card.classList.add('user-motion-card');
+    if (reducedMotion.matches) return;
+    card.style.setProperty('--user-card-delay', `${Math.min(index, 7) * 70}ms`);
+    card.classList.add('user-card-enter');
+    card.addEventListener('animationend', event => {
+      if (event.target !== card || event.animationName !== 'user-card-arrive') return;
+      card.classList.remove('user-card-enter');
+      card.style.removeProperty('--user-card-delay');
+    });
+  });
+})();
 const navigation = document.getElementById('workspaceLinks');
 const toggle = document.getElementById('navToggle');
 const logoutLinks = document.querySelectorAll('[data-logout]');
@@ -105,13 +124,75 @@ document.querySelectorAll('[data-search]').forEach(input => {
     empty.hidden = rows.some(row => !row.hidden);
   });
 });
-document.querySelector('[data-card-freeze]')?.addEventListener('click', event => {
-  const button = event.currentTarget;
-  const frozen = button.getAttribute('aria-pressed') !== 'true';
-  button.setAttribute('aria-pressed', String(frozen));
-  button.textContent = frozen ? 'Unfreeze card' : 'Freeze card';
-  const status = document.getElementById('cardStatus');
-  status.textContent = frozen ? 'Frozen · Preview' : 'Active';
-  status.classList.toggle('warn', frozen);
-  showToast('Card appearance changed for this preview only.');
-});
+const cardFreezeButton = document.querySelector('[data-card-freeze]');
+if (cardFreezeButton) {
+  const confirmation = document.createElement('dialog');
+  confirmation.className = 'preview-dialog card-freeze-dialog';
+  confirmation.setAttribute('aria-labelledby', 'cardFreezeTitle');
+  confirmation.setAttribute('aria-describedby', 'cardFreezeCopy');
+  confirmation.innerHTML = '<div class="tracking-header"><h2 id="cardFreezeTitle"></h2><button type="button" class="close-dialog" data-card-cancel aria-label="Close confirmation">×</button></div><p class="card-freeze-account">Premier debit card · •••• 1234</p><p id="cardFreezeCopy"></p><div class="button-row"><button type="button" class="btn-wise btn-dark" data-card-confirm></button><button type="button" class="btn-wise btn-outline" data-card-cancel autofocus>Cancel</button></div>';
+  document.body.append(confirmation);
+  let nextFrozen = false;
+  let freezeTimer;
+  const result = document.createElement('div');
+  result.className = 'card-freeze-result';
+  result.hidden = true;
+  result.innerHTML = '<div class="freeze-art" aria-hidden="true"><div class="animated-bank-card"><span>northBank</span><i class="freeze-chip"></i><strong>•••• &nbsp; •••• &nbsp; 1234</strong><small>PREMIER DEBIT</small><div class="card-frost"></div></div><span class="ice-flake flake-one">❄</span><span class="ice-flake flake-two">❄</span><span class="ice-flake flake-three">❄</span></div><h2 id="cardFreezeResultTitle"></h2><p id="cardFreezeResultCopy"></p><small>Card controls are illustrative in this preview.</small><button type="button" class="btn-wise btn-dark" data-card-done>Back to my card</button>';
+  const cardStar = document.createElement('img');
+  cardStar.className = 'card-brand-star';
+  cardStar.src = '../../assets/northbank-favicon.svg';
+  cardStar.alt = '';
+  const animatedCard = result.querySelector('.animated-bank-card');
+  animatedCard.prepend(cardStar);
+  const shards = document.createElement('div');
+  shards.className = 'card-ice-shards';
+  shards.setAttribute('aria-hidden', 'true');
+  for (let index = 0; index < 12; index++) {
+    const shard = document.createElement('i');
+    const angle = index * Math.PI / 6;
+    shard.style.setProperty('--shard-x', `${Math.round(Math.cos(angle) * (100 + index % 3 * 25))}px`);
+    shard.style.setProperty('--shard-y', `${Math.round(Math.sin(angle) * (75 + index % 3 * 20))}px`);
+    shard.style.setProperty('--shard-spin', `${index % 2 ? 190 : -150}deg`);
+    shards.append(shard);
+  }
+  animatedCard.append(shards);
+  confirmation.append(result);
+  const originalParts = [...confirmation.children].filter(child => child !== result);
+  function closeFreezeResult() { clearTimeout(freezeTimer); confirmation.close(); }
+  result.querySelector('[data-card-done]').addEventListener('click', closeFreezeResult);
+  confirmation.addEventListener('close', () => clearTimeout(freezeTimer));
+  cardFreezeButton.addEventListener('click', () => {
+    clearTimeout(freezeTimer);
+    originalParts.forEach(part => part.hidden = false);
+    result.hidden = true;
+    confirmation.classList.remove('show-freeze-result', 'is-thawing');
+    confirmation.setAttribute('aria-labelledby', 'cardFreezeTitle');
+    confirmation.setAttribute('aria-describedby', 'cardFreezeCopy');
+    nextFrozen = cardFreezeButton.getAttribute('aria-pressed') !== 'true';
+    document.getElementById('cardFreezeTitle').textContent = nextFrozen ? 'Freeze your card?' : 'Unfreeze your card?';
+    document.getElementById('cardFreezeCopy').textContent = nextFrozen
+      ? 'Temporarily pause this card? You can unfreeze it anytime. This changes the preview only.'
+      : 'Make this card active again? This changes the preview only.';
+    confirmation.querySelector('[data-card-confirm]').textContent = nextFrozen ? 'Confirm freeze' : 'Confirm unfreeze';
+    confirmation.showModal();
+  });
+  confirmation.querySelectorAll('[data-card-cancel]').forEach(button => button.addEventListener('click', () => confirmation.close()));
+  confirmation.querySelector('[data-card-confirm]').addEventListener('click', () => {
+    cardFreezeButton.setAttribute('aria-pressed', String(nextFrozen));
+    cardFreezeButton.textContent = nextFrozen ? 'Unfreeze card' : 'Freeze card';
+    const status = document.getElementById('cardStatus');
+    status.textContent = nextFrozen ? 'Frozen · Preview' : 'Active';
+    status.classList.toggle('warn', nextFrozen);
+    document.querySelector('.debit-card')?.classList.toggle('is-frozen', nextFrozen);
+    originalParts.forEach(part => part.hidden = true);
+    result.hidden = false;
+    confirmation.classList.add('show-freeze-result');
+    confirmation.classList.toggle('is-thawing', !nextFrozen);
+    confirmation.setAttribute('aria-labelledby', 'cardFreezeResultTitle');
+    confirmation.setAttribute('aria-describedby', 'cardFreezeResultCopy');
+    document.getElementById('cardFreezeResultTitle').textContent = nextFrozen ? 'Your card is frozen' : 'Your card is active';
+    document.getElementById('cardFreezeResultCopy').textContent = nextFrozen ? 'Premier debit · •••• 1234 is paused.' : 'Premier debit · •••• 1234 is ready to use again.';
+    result.querySelector('[data-card-done]').focus();
+    freezeTimer = setTimeout(closeFreezeResult, nextFrozen ? 3500 : 4400);
+  });
+}

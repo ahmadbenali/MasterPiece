@@ -8,6 +8,7 @@
 <link rel="icon" href="../../assets/northbank-favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet" href="../../css/workspace.css">
+<script src="../../js/profile.js" defer></script>
 <script src="../../js/workspace.js" defer>
 </script>
 <link rel="stylesheet" href="../../css/arrows.css"><script src="../../js/arrows.js" defer></script></head>
@@ -25,8 +26,6 @@
 <a href="../user/user.html">Overview</a>
 <a href="../accounts/accounts.html">Accounts</a>
 <a href="../transfer/transfer.html">Transfer</a>
-<a href="../cards/cards.html">Cards</a>
-<a href="../history/history.html">Activity</a>
 <a href="../insights/insights.html">Spending insights</a>
 <a href="../subscriptions/subscriptions.html">Subscriptions</a>
 <a href="../security/security.html">Security center</a>
@@ -40,25 +39,34 @@
 </nav>
 </header>
 <main id="main" class="workspace-main">
-<section class="page-hero">
+<section class="page-hero user-illustrated-hero">
 <div class="page-wrap">
 <div class="hero-topline">
 <div class="eyebrow">Personal account · User workspace</div>
 </div>
 <h1 class="display-title">Your profile</h1>
 <p>Personal details and protection, all in one place.</p>
+<img class="user-hero-illustration" src="../../assets/user-heroes/profile.svg" alt="" aria-hidden="true">
 </div>
 </section>
 <div class="page-wrap content-area">
 <section class="card-wise ">
 <h2>Profile & security</h2>
 <div class="person-row">
-<span class="avatar">AM</span>
+<span class="avatar profile-avatar" id="profileAvatar">AM</span>
 <div>
-<h2>Alex Morgan</h2>
+<h2 id="profileDisplayName">Alex Morgan</h2>
 <p>Premier Account #NB-9941</p>
 </div>
 </div>
+<form id="profileForm" class="profile-editor">
+<div class="field"><label for="displayName">Display name (nickname)</label><input id="displayName" name="nickname" autocomplete="nickname" required maxlength="40" value="Alex Morgan"></div>
+<div class="field"><label for="phoneNumber">Phone number</label><input id="phoneNumber" name="phone" type="tel" autocomplete="tel" maxlength="25" placeholder="+962 7X XXX XXXX" aria-describedby="phoneHint"><small id="phoneHint">Include your country code.</small></div>
+<div class="field"><label for="profilePhoto">Profile picture</label><input id="profilePhoto" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="photoHint"><small id="photoHint">JPG, PNG or WebP, up to 5 MB.</small></div>
+<div class="button-row"><button class="btn-wise btn-dark" type="submit">Save profile</button><button class="btn-wise btn-outline" type="button" id="removePhoto">Remove photo</button></div>
+<p id="profileMessage" role="status"></p>
+<p class="small-copy">Profile changes are saved on this browser for this preview.</p>
+</form>
 <dl class="summary-list">
 <div>
 <dt>Email</dt>
@@ -81,6 +89,17 @@
 <a class="btn-wise btn-dark" href="../security/security.html">Manage security →</a>
 <a class="btn-wise btn-outline" href="../login/login.html" data-logout>Sign out →</a>
 </div>
+</section>
+<section class="card-wise">
+<h2>Change password</h2>
+<p>This preview cannot change your sign-in password. A connected account service is required.</p>
+<form id="passwordForm">
+<div class="field"><label for="currentPassword">Current password</label><input id="currentPassword" type="password" autocomplete="current-password" required></div>
+<div class="field"><label for="newPassword">New password</label><input id="newPassword" type="password" autocomplete="new-password" minlength="12" required aria-describedby="passwordHint"><small id="passwordHint">Use at least 12 characters.</small></div>
+<div class="field"><label for="confirmPassword">Confirm new password</label><input id="confirmPassword" type="password" autocomplete="new-password" required></div>
+<button class="btn-wise btn-dark" type="submit">Validate password</button>
+<p id="passwordMessage" role="status"></p>
+</form>
 </section>
 </div>
 </main>

@@ -10,7 +10,8 @@
 <link rel="stylesheet" href="../../css/workspace.css">
 <script src="../../js/workspace.js" defer>
 </script>
-<link rel="stylesheet" href="../../css/arrows.css"><script src="../../js/arrows.js" defer></script></head>
+<link rel="stylesheet" href="../../css/arrows.css"><script src="../../js/arrows.js" defer></script><script src="../../js/transfer.js" defer></script>
+</head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="workspace-header">
@@ -25,8 +26,6 @@
 <a href="../user/user.html">Overview</a>
 <a href="../accounts/accounts.html">Accounts</a>
 <a href="transfer.html" aria-current="page">Transfer</a>
-<a href="../cards/cards.html">Cards</a>
-<a href="../history/history.html">Activity</a>
 <a href="../insights/insights.html">Spending insights</a>
 <a href="../subscriptions/subscriptions.html">Subscriptions</a>
 <a href="../security/security.html">Security center</a>
@@ -40,35 +39,24 @@
 </nav>
 </header>
 <main id="main" class="workspace-main">
-<section class="page-hero">
+<section class="page-hero user-illustrated-hero">
 <div class="page-wrap">
 <div class="hero-topline">
 <div class="eyebrow">Personal account · User workspace</div>
 </div>
 <h1 class="display-title">All done.</h1>
 <p>Your sample transfer is complete.</p>
+<img class="user-hero-illustration" src="../../assets/user-heroes/success.svg" alt="" aria-hidden="true">
 </div>
 </section>
 <div class="page-wrap content-area">
 <section class="card-wise success-card">
 <div class="success-icon">✓</div>
-<h2>$250.00 dispatched</h2>
-<p>Wire delivered to Jordan Lee.</p>
-<dl class="summary-list">
-<div>
-<dt>Reference</dt>
-<dd>#NB-940294</dd>
-</div>
-<div>
-<dt>Route</dt>
-<dd>SafeRoute™</dd>
-</div>
-<div>
-<dt>Status</dt>
-<dd>Settled · sample</dd>
-</div>
-</dl>
-<a class="btn-wise btn-dark" href="../user/user.html">Back to overview →</a>
+<h2>Transfer submitted · preview</h2>
+<p id="transferReceipt"></p>
+<div class="notice">This is a sample tracking flow. No funds have been sent.</div>
+<button type="button" class="btn-wise btn-dark" id="openTracking">Track transfer →</button>
+<a class="btn-wise btn-outline" href="../user/user.html">Back to overview</a>
 </section>
 </div>
 </main>
@@ -86,6 +74,17 @@
 <p id="dialogCopy">
 </p>
 <button class="btn-wise btn-dark" data-dialog-close>Got it</button>
+</dialog>
+<dialog id="transferTracking" class="preview-dialog transfer-tracking" aria-labelledby="trackingTitle">
+<div class="tracking-header"><div><small>TRANSFER TRACKING · PREVIEW</small><h2 id="trackingTitle">Transfer #NB-940294</h2></div><button type="button" class="close-dialog" id="closeTracking" aria-label="Close tracking">×</button></div>
+<p id="trackingDescription"></p>
+<ol class="transfer-timeline">
+<li class="complete"><span class="timeline-time">Step 1</span><span class="timeline-dot">✓</span><div><strong>Transfer created</strong><small>Your sample transfer details were submitted.</small></div></li>
+<li class="complete"><span class="timeline-time">Step 2</span><span class="timeline-dot">✓</span><div><strong>Details confirmed</strong><small>You reviewed the recipient and amount.</small></div></li>
+<li class="current"><span class="timeline-time">Step 3</span><span class="timeline-dot"></span><div><strong>Processing</strong><small>Illustrative stage, no bank is processing funds.</small></div></li>
+<li><span class="timeline-time">Step 4</span><span class="timeline-dot"></span><div><strong>Received by recipient</strong><small>Pending · not connected to a payment service.</small></div></li>
+</ol>
+<button type="button" class="btn-wise btn-outline" id="doneTracking">Done</button>
 </dialog>
 </body>
 </html>
