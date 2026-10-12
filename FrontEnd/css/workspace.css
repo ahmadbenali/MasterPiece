@@ -1146,3 +1146,88 @@ body{font-size:17px}
 @keyframes user-card-arrive{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
 @media(hover:hover) and (pointer:fine){.user-motion-card:hover{translate:0 -5px;box-shadow:0 12px 28px #16330010}}
 @media(prefers-reduced-motion:reduce){.user-motion-card{transition:none}.user-card-enter{animation:none}.user-motion-card:hover{translate:none}}
+
+/* Crack lines appear at impact, rather than during the star's approach. */
+.is-thawing .card-frost{background:linear-gradient(135deg,#c7efffcc,#b0e3ff99)}
+.is-thawing .card-frost::after{content:"";position:absolute;inset:0;border-radius:inherit;background:repeating-conic-gradient(from 20deg at 50% 50%,#f1fbffcc 0deg 1deg,transparent 1deg 38deg);opacity:0;animation:ice-cracks-at-impact 450ms 1000ms linear both}
+@keyframes ice-cracks-at-impact{0%{opacity:0}1%,100%{opacity:1}}
+@media(prefers-reduced-motion:reduce){.is-thawing .card-frost::after{animation:none}}
+
+.security-back-link{display:inline-block;margin-bottom:24px}
+.risk-alert .summary-list{margin:18px 0}
+.risk-alert .summary-list>div{gap:20px}
+.risk-alert .summary-list dd{text-align:right;overflow-wrap:anywhere}
+.atm-place-search{margin-bottom:24px}
+.atm-place-search>label{display:block;font-weight:600;margin-bottom:10px}
+.atm-place-search .button-row{display:flex;gap:12px;flex-wrap:nowrap}
+.atm-place-search .search-input{flex:1;min-width:0}
+.atm-place-search>p{font-size:13px;color:var(--muted);margin:10px 0 0}
+@media(max-width:600px){.atm-place-search .button-row{flex-wrap:wrap}.atm-place-search .search-input{flex-basis:100%}}
+
+.security-response-dialog{width:min(520px,calc(100% - 32px));padding:28px;border:1px solid #dce5d6;border-radius:22px;background:#fff;color:#163300;max-height:90dvh;overflow:auto}
+.security-response-dialog::backdrop{background:#10200988;backdrop-filter:blur(4px)}
+.security-response-dialog h2{font:700 25px/1.3 Inter,Arial,sans-serif;letter-spacing:-.5px;margin:0 0 14px}
+.security-response-dialog p{font-size:14px;line-height:1.6;margin-bottom:24px}
+.security-response-dialog [hidden]{display:none!important}
+.security-response-dialog.security-response-done{background:#9fe870;text-align:center;display:flex;flex-direction:column;align-items:center}
+.security-result-art{order:-1;width:240px;max-width:100%;margin-bottom:12px;animation:transfer-done-pop 500ms ease both}
+.security-result-art svg{display:block;width:100%}
+.security-check{stroke-dasharray:1;stroke-dashoffset:1;animation:transfer-done-draw 500ms 250ms ease forwards}
+.security-lock-shackle{transform:translateY(-19px);animation:security-lock-close 650ms 250ms cubic-bezier(.3,1.3,.4,1) forwards}
+@keyframes security-lock-close{to{transform:translateY(0)}}
+@media(prefers-reduced-motion:reduce){.security-result-art,.security-check,.security-lock-shackle{animation:none}.security-check{stroke-dashoffset:0}.security-lock-shackle{transform:none}}
+
+.profile-details-card{max-width:960px;margin-inline:auto}
+.profile-details-card>.person-row{padding:22px;border-radius:18px;background:#f1f7eb;gap:20px;margin:20px 0 28px}
+.profile-details-card .profile-avatar{background:#163300;color:#9fe870;font-weight:700;font-size:24px}
+.profile-details-card .person-row h2{font-family:Inter,Arial,sans-serif;font-size:25px;margin:0 0 5px}
+.profile-details-card .person-row p{margin:0;color:var(--muted)}
+.profile-info-list{margin-bottom:22px}
+.profile-info-row{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
+.profile-info-row>div{min-width:0}
+.profile-info-row span{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+.profile-info-row strong{display:block;font-size:16px;overflow-wrap:anywhere}
+.profile-info-row .btn-wise{font-size:13px;padding:10px 16px;flex-shrink:0;min-width:130px}
+.profile-edit-dialog{width:min(520px,calc(100% - 32px));border:1px solid #dce5d6;border-radius:22px;padding:26px;max-height:90dvh;overflow:auto;background:#fff;color:#163300}
+.profile-edit-dialog::backdrop{background:#10200988;backdrop-filter:blur(4px)}
+.profile-edit-dialog .tracking-header h2{font:600 22px/1.3 Inter,Arial,sans-serif;margin:0}
+.profile-edit-dialog [hidden]{display:none!important}
+.profile-edit-dialog .field{margin:18px 0;max-width:none}
+.profile-edit-dialog .field label{display:block;margin-bottom:7px;font-size:13px}
+.profile-edit-dialog .field input{width:100%;padding:12px 14px;font-size:15px;border-radius:12px}
+.profile-edit-dialog .field small{display:block;color:var(--muted);font-size:12px;margin-top:7px}
+.profile-edit-dialog .btn-wise{font-size:13px;padding:11px 17px}
+.profile-edit-dialog .profile-editor{border:0;padding:0;margin-bottom:14px}
+.profile-edit-dialog.is-complete{background:#9fe870;text-align:center}
+.profile-password-done svg{display:block;width:220px;max-width:100%;margin:auto;animation:transfer-done-pop 500ms ease both}
+.profile-password-done h2{font:700 25px/1.3 Inter,Arial,sans-serif}
+.profile-password-done p{font-size:14px;line-height:1.6}
+.profile-done-check{stroke-dasharray:1;stroke-dashoffset:1;animation:transfer-done-draw 500ms 250ms ease forwards}
+@media(max-width:520px){.profile-info-row{align-items:flex-start;gap:12px}.profile-info-row .btn-wise{min-width:0;font-size:11px;padding:9px 12px}.profile-info-row strong{font-size:14px}.profile-details-card>.person-row{padding:16px}.profile-details-card .person-row h2{font-size:21px}}
+@media(prefers-reduced-motion:reduce){.profile-password-done svg,.profile-done-check{animation:none}.profile-done-check{stroke-dashoffset:0}}
+
+/* Profile details use the available width rather than a tall single list. */
+.profile-details-card{width:100%;max-width:none}
+.profile-details-card .profile-info-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px;margin-bottom:0}
+.profile-details-card .profile-info-row{padding:18px 0}
+.profile-details-card>.person-row{margin-bottom:14px;padding:18px 22px}
+@media(max-width:760px){.profile-details-card .profile-info-list{grid-template-columns:1fr;gap:0}}
+
+/* Teal intelligence artwork adapted to the debit card face. */
+.debit-card{background:radial-gradient(ellipse at 70% 100%,#157e7e,#073239 65%,#12212c);border:1px solid #164c51;color:#d3efeb;isolation:isolate}
+.debit-card::after{inset:auto -22px -24px auto;width:260px;height:180px;border:0;border-radius:0;background:url('../assets/card-crystal.svg') center/contain no-repeat;opacity:.7;z-index:-1;pointer-events:none}
+.debit-card img{filter:brightness(0) invert(1);position:relative}
+.debit-card .number{color:#efffff;text-shadow:0 1px 5px #073239;position:relative;font-weight:500;letter-spacing:3px}
+.debit-card small{color:#c3e7e4;position:relative;text-shadow:0 1px 4px #073239}
+.animated-bank-card{background:radial-gradient(ellipse at 70% 100%,#157e7e,#073239 65%,#12212c);border:1px solid #164c51}
+.animated-bank-card::after{content:"";position:absolute;right:0;bottom:0;width:150px;height:90px;border-radius:0 0 19px 0;background:url('../assets/card-crystal.svg') center/contain no-repeat;opacity:.4;pointer-events:none}
+.animated-bank-card>span,.animated-bank-card strong,.animated-bank-card small,.animated-bank-card .freeze-chip{position:relative;z-index:1}
+
+/* Match the banner's oversized crystal, cropped past the lower-right edge. */
+.debit-card::after{width:320px;height:210px;right:-35px;bottom:-65px;top:auto;opacity:.8;background-size:contain;background-position:center}
+.animated-bank-card::after{width:210px;height:135px;right:-22px;bottom:-43px;opacity:.65;background-size:contain;background-position:center}
+
+/* Paint the crystal as a card background so it clips to the rounded face,
+   while the moving logo and ice fragments can still travel outside. */
+.animated-bank-card{background-image:url('../assets/card-crystal.svg'),radial-gradient(ellipse at 70% 100%,#157e7e,#073239 65%,#12212c);background-size:210px 135px,100% 100%;background-position:right -22px bottom -43px,center;background-repeat:no-repeat;background-clip:padding-box}
+.animated-bank-card::after{display:none}

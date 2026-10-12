@@ -225,3 +225,32 @@
 .admin-dashboard.admin-light-theme .option-card p{color:#647873}
 .admin-dashboard.admin-light-theme .option-card:has(input:checked) p{color:#42685b}
 @media(forced-colors:active){.admin-dashboard.admin-light-theme input:is([type="radio"],[type="checkbox"]){appearance:auto}.admin-dashboard.admin-light-theme input:is([type="radio"],[type="checkbox"])::before{content:none}}
+
+/* Let admin forms occupy their full content column. */
+.admin-workspace-page .form-card{width:100%;max-width:none}
+.assessment-models{margin-top:12px}
+.assessment-model-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:18px;flex-wrap:wrap}
+.admin-dashboard .assessment-model-heading h2{margin:0;font-size:18px}
+.admin-dashboard .llm-model-card .summary-list>div{gap:20px}
+.admin-dashboard .llm-model-card .summary-list dd{text-align:right}
+.admin-dashboard .llm-model-card>small{font-size:11px;color:var(--muted)}
+@media(max-width:760px){.assessment-models .grid-equal{grid-template-columns:1fr}}
+
+.assessment-model-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+.assessment-model-grid>*{min-width:0}
+.admin-dashboard .assessment-model-grid .risk-score{font-size:clamp(56px,5vw,88px)}
+.admin-dashboard .assessment-model-grid .factor-row{gap:12px}
+@media(max-width:1100px){.assessment-model-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.assessment-model-grid{grid-template-columns:1fr}}
+/* Readable secondary text on the light admin surfaces. */
+.admin-dashboard.admin-light-theme :is(.card-wise p,.stat-card small,.llm-model-card>small,.muted,.small-copy,.factor-row,.field,.option-card small,.option-card:has(input:checked) small){color:#465c55}
+.admin-dashboard.admin-light-theme :is(.factor-row strong,.option-card strong,.summary-list dd){color:#213a36}
+.admin-dashboard.admin-light-theme .factor-row{border-color:#d4e1dc}
+.admin-dashboard.admin-light-theme .risk-meter{background:#e1eae5}
+.admin-dashboard.admin-light-theme .risk-score{color:#16866f}
+.admin-dashboard.admin-light-theme :is(.metric-caption,.chart-axis,.chart-legend>span,.review-progress>div:first-child,.workload-label,.workload-legend,.assistant-answer){color:#52685f}
+
+/* Gentle lift for admin cards, without moving their surrounding layout. */
+.admin-dashboard :is(.dashboard-card,.card-wise,.stat-card){transition:translate 240ms cubic-bezier(.22,1,.36,1),box-shadow 240ms ease}
+@media(hover:hover) and (pointer:fine){.admin-dashboard :is(.dashboard-card,.card-wise,.stat-card):hover{translate:0 -4px;box-shadow:0 12px 28px #00000018}}
+@media(prefers-reduced-motion:reduce){.admin-dashboard :is(.dashboard-card,.card-wise,.stat-card){transition:none}.admin-dashboard :is(.dashboard-card,.card-wise,.stat-card):hover{translate:none}}

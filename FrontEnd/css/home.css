@@ -132,3 +132,20 @@
 .login-pill-label{position:relative;display:grid;place-items:center;width:96px;height:40px;pointer-events:none}
 .login-pill-arrow{position:absolute;left:0;top:0;display:grid;place-items:center;width:36px;height:40px;font-size:19px;font-weight:400;opacity:var(--login-morph);transform:translateX(calc((1 - var(--login-morph))*26px));pointer-events:none}
 @media(max-width:768px){.site-header .login-pill{margin-left:0}}
+
+/* Compact footer following the removed link columns. */
+.bottom-surface{padding-top:0}
+.footer{padding-top:24px}
+.footer-brand{margin-top:0;padding-top:0;border-top:0}
+.fraud-feature-panel .display-heading{margin-bottom:28px}
+.fraud-feature-copy{max-width:680px;margin:0 auto 30px;font-size:20px;line-height:1.6;color:#426523}
+@media(max-width:760px){.fraud-feature-copy{font-size:16px;line-height:1.6}.footer{padding-top:20px}.footer-brand{margin-top:0;padding-top:0}}
+
+/* Keep the mission panel and its globe comfortably within one screen. */
+.mission-section{padding:110px 24px 36px;margin-top:90px;margin-bottom:36px}
+.mission-section .money-globe{width:300px;height:225px;top:-110px}
+.mission-section h2{font-size:clamp(40px,5.2vw,72px);line-height:.95;margin-bottom:20px}
+.mission-section p{font-size:18px;line-height:1.5;max-width:650px;margin-bottom:24px}
+#platform.app-section{margin-bottom:48px}
+@media(max-height:700px) and (min-width:761px){.mission-section{padding-top:85px;padding-bottom:26px;margin-top:70px}.mission-section .money-globe{width:240px;height:180px;top:-90px}.mission-section h2{font-size:52px}.mission-section p{font-size:16px;margin-bottom:18px}}
+@media(max-width:760px){.mission-section{padding:95px 20px 30px;margin-top:70px}.mission-section .money-globe{width:250px;height:185px;top:-90px}.mission-section h2{font-size:clamp(36px,8vw,52px)}.mission-section p{font-size:16px}#platform.app-section{margin-bottom:32px}}

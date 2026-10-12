@@ -10,7 +10,8 @@
 <link rel="stylesheet" href="../../css/workspace.css">
 <script src="../../js/workspace.js" defer>
 </script>
-<link rel="stylesheet" href="../../css/arrows.css"><script src="../../js/arrows.js" defer></script></head>
+<link rel="stylesheet" href="../../css/arrows.css"><script src="../../js/arrows.js" defer></script><script src="../../js/atm-search.js" defer></script>
+</head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="workspace-header">
@@ -49,6 +50,11 @@
 </div>
 </section>
 <div class="page-wrap content-area">
+<form id="atmSearchForm" class="atm-place-search" role="search">
+<label for="atmPlaceSearch">Search by city, area or branch</label>
+<div class="button-row"><input type="search" class="search-input" id="atmPlaceSearch" placeholder="Try Amman, Irbid, Central or Riverside" autocomplete="off"><button class="btn-wise btn-dark" type="submit">Search</button></div>
+<p id="atmSearchStatus" role="status">Showing sample locations.</p>
+</form>
 <div class="grid-two">
 <div class="map-art" aria-label="Illustrative ATM map">
 <div class="map-pin">
@@ -62,17 +68,17 @@
 </div>
 <section class="card-wise ">
 <h2>Nearby locations</h2>
-<div class="device-row">
+<div class="device-row" data-atm-place="Amman downtown central">
 <div>
 <strong>Central branch</strong>
-<small>0.4 mi · Open 24 hours</small>
+<small>Amman · Downtown · 0.4 mi · Open 24 hours</small>
 </div>
 <span class="status-badge ">ATM</span>
 </div>
-<div class="device-row">
+<div class="device-row" data-atm-place="Irbid riverside university">
 <div>
 <strong>Riverside branch</strong>
-<small>1.2 mi · Mon–Fri 9:00–17:00</small>
+<small>Irbid · University area · 1.2 mi · Mon–Fri 9:00–17:00</small>
 </div>
 <span class="status-badge ">Branch</span>
 </div>

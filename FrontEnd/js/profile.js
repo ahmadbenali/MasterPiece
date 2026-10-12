@@ -7,8 +7,37 @@
   const message = document.getElementById('profileMessage');
   let photoData = '';
   let photoPending = false;
+  const editDialog = document.getElementById('profileEditDialog');
+  const passwordDialog = document.getElementById('passwordEditDialog');
+  let snapshot;
+  document.querySelectorAll('[data-edit-profile]').forEach(button => button.addEventListener('click', () => {
+    snapshot = {name:name.value, phone:phone.value, photo:photoData};
+    const type = button.dataset.editProfile;
+    const fields = [...form.querySelectorAll('.field')];
+    fields.forEach((field,index) => field.hidden = index !== ['nickname','phone','photo'].indexOf(type));
+    document.getElementById('removePhoto').hidden = type !== 'photo';
+    document.getElementById('profileEditTitle').textContent = {nickname:'Change display name',phone:'Change phone number',photo:'Change profile picture'}[type];
+    message.textContent = '';
+    editDialog.showModal();
+  }));
+  editDialog.addEventListener('close', () => {
+    if (snapshot) { name.value = snapshot.name; phone.value = snapshot.phone; photoData = snapshot.photo; render(name.value); }
+    form.querySelectorAll('input').forEach(input => input.setCustomValidity(''));
+  });
+  document.querySelectorAll('[data-profile-close]').forEach(button => button.addEventListener('click', () => editDialog.close()));
+  document.getElementById('openPasswordEditor').addEventListener('click', () => {
+    document.getElementById('passwordEditor').hidden = false;
+    document.getElementById('passwordDone').hidden = true;
+    passwordDialog.classList.remove('is-complete');
+    passwordDialog.setAttribute('aria-labelledby','passwordEditTitle');
+    passwordDialog.showModal();
+  });
+  document.querySelectorAll('[data-password-close]').forEach(button => button.addEventListener('click', () => passwordDialog.close()));
+  passwordDialog.addEventListener('close', () => document.getElementById('passwordForm').reset());
   function render(displayName) {
     document.getElementById('profileDisplayName').textContent = displayName;
+    document.getElementById('savedNickname').textContent = displayName;
+    document.getElementById('savedPhone').textContent = phone.value.trim() || 'Not added';
     avatar.replaceChildren();
     if (photoData) {
       const image = document.createElement('img');
@@ -72,6 +101,8 @@
       localStorage.setItem('northbank-preview-profile', JSON.stringify({nickname:name.value.trim(), phone:phone.value.trim(), photo:photoData}));
       render(name.value.trim());
       message.textContent = 'Profile saved on this browser.';
+      snapshot = null;
+      editDialog.close();
     } catch { message.textContent = 'Unable to save changes. Browser storage may be unavailable or full.'; }
   });
   const passwordForm = document.getElementById('passwordForm');
@@ -85,6 +116,10 @@
     confirm.setCustomValidity(confirm.value === next.value ? '' : 'Passwords do not match.');
     if (!passwordForm.reportValidity()) return;
     passwordForm.reset();
-    document.getElementById('passwordMessage').textContent = 'Password format is valid. Your password was not changed: this preview has no account service.';
+    document.getElementById('passwordEditor').hidden = true;
+    document.getElementById('passwordDone').hidden = false;
+    passwordDialog.classList.add('is-complete');
+    passwordDialog.setAttribute('aria-labelledby','passwordDoneTitle');
+    document.querySelector('#passwordDone button').focus();
   });
 })();

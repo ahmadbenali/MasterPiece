@@ -10,7 +10,8 @@
 <link rel="stylesheet" href="../../css/workspace.css">
 <script src="../../js/workspace.js" defer>
 </script>
-<link rel="stylesheet" href="../../css/arrows.css"><script src="../../js/arrows.js" defer></script></head>
+<link rel="stylesheet" href="../../css/arrows.css"><script src="../../js/arrows.js" defer></script><script src="../../js/security-response.js" defer></script>
+</head>
 <body>
 <a class="skip-link" href="#main">Skip to content</a>
 <header class="workspace-header">
@@ -49,30 +50,22 @@
 </div>
 </section>
 <div class="page-wrap content-area">
-<div class="grid-equal">
 <section class="card-wise ">
-<h2>Account protection</h2>
+<h2>Activity needing your attention</h2>
+<div class="risk-alert">
+<strong>Confirm an unusual transfer</strong>
+<p>A wire transfer to a new beneficiary was flagged from an unrecognized session.</p>
 <dl class="summary-list">
-<div>
-<dt>Biometric passkeys</dt>
-<dd>
-<span class="status-badge ">Active</span>
-</dd>
-</div>
-<div>
-<dt>Two-step verification</dt>
-<dd>Enabled</dd>
-</div>
-<div>
-<dt>Recognized devices</dt>
-<dd>2 devices</dd>
-</div>
-<div>
-<dt>Account alerts</dt>
-<dd>Enabled</dd>
-</div>
+<div><dt>Occurred</dt><dd><time datetime="2026-10-12T14:32:00+03:00">12 Oct 2026 · 2:32 PM (Amman, UTC+3)</time></dd></div>
+<div><dt>Transfer reference</dt><dd>TX-9024</dd></div>
+<div><dt>Amount</dt><dd>$18,450.00 USD</dd></div>
+<div><dt>Beneficiary</dt><dd>Helvetia Offshore</dd></div>
+<div><dt>Source account</dt><dd>Checking •••• 1234</dd></div>
+<div><dt>Status</dt><dd>On hold pending your review</dd></div>
 </dl>
-<div class="notice ">✓ Your sample account is protected.</div>
+<p class="small-copy">Illustrative transaction details for this preview.</p>
+<div class="button-row"><button type="button" class="btn-wise btn-dark" data-security-response="yes">Yes, this was me</button><button type="button" class="btn-wise btn-danger" data-security-response="no">No! Secure my account</button></div>
+</div>
 </section>
 <section class="card-wise ">
 <h2>Recognized devices</h2>
@@ -89,15 +82,6 @@
 <small>Last active yesterday</small>
 </div>
 <button class="btn-wise btn-outline" data-toast="Sample device review complete. No real device settings changed.">Review</button>
-</div>
-</section>
-</div>
-<section class="card-wise ">
-<h2>Activity needing your attention</h2>
-<div class="risk-alert">
-<strong>Confirm an unusual transfer</strong>
-<p>We noticed a sample wire transfer to a new beneficiary.</p>
-<a class="btn-wise btn-dark" href="fraud-confirmation.html">Review activity →</a>
 </div>
 </section>
 </div>
