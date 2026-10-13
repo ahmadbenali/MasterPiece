@@ -254,3 +254,76 @@
 .admin-dashboard :is(.dashboard-card,.card-wise,.stat-card){transition:translate 240ms cubic-bezier(.22,1,.36,1),box-shadow 240ms ease}
 @media(hover:hover) and (pointer:fine){.admin-dashboard :is(.dashboard-card,.card-wise,.stat-card):hover{translate:0 -4px;box-shadow:0 12px 28px #00000018}}
 @media(prefers-reduced-motion:reduce){.admin-dashboard :is(.dashboard-card,.card-wise,.stat-card){transition:none}.admin-dashboard :is(.dashboard-card,.card-wise,.stat-card):hover{translate:none}}
+
+/* Destructive controls stay legible in both admin palettes. */
+.admin-dashboard .btn-wise.management-delete{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:#35212b;border:1px solid #633448;color:#f0a9bd;border-radius:9px;padding:9px 13px;font:600 12px/1.3 Manrope,Arial,sans-serif;white-space:nowrap;transition:background-color 180ms ease,border-color 180ms ease,color 180ms ease}
+.admin-dashboard .management-delete svg{width:16px;height:16px;flex-shrink:0}
+.admin-dashboard .btn-wise.management-delete:hover{background:#4b2635;border-color:#ad5473;color:#ffe6ee}
+.admin-dashboard.admin-light-theme .btn-wise.management-delete{background:#fff5f6;border-color:#efccd3;color:#a72d4a}
+.admin-dashboard.admin-light-theme .btn-wise.management-delete:hover{background:#ffe5eb;border-color:#d98398;color:#851d36}
+.admin-dashboard .btn-wise.management-delete:focus-visible{outline:2px solid #d98398;outline-offset:3px}
+.admin-dashboard #managementDeleteDialog{width:min(480px,calc(100% - 32px));padding:28px;border-radius:18px}
+.admin-dashboard #managementDeleteDialog h2{font-size:23px;margin:0 0 14px}
+.admin-dashboard #managementDeleteDialog p{line-height:1.7;font-size:14px;margin-bottom:24px}
+.admin-dashboard #confirmManagementDelete{background:#a72d4a;border-color:#a72d4a;color:#fff}
+.admin-dashboard #confirmManagementDelete:hover{background:#851d36;border-color:#851d36;color:#fff}
+@media(prefers-reduced-motion:reduce){.admin-dashboard .btn-wise.management-delete{transition:none}}
+
+/* Brighter accents and a soft upper-left sheen, inspired by the reference. */
+.admin-dashboard:not(.admin-light-theme) :is(.dashboard-card,.card-wise,.stat-card){background:radial-gradient(ellipse at 0% 0%,#77738e24,transparent 58%),linear-gradient(135deg,#211f2b,#15141e 75%);border-color:#444150;box-shadow:inset 1px 1px 0 #ffffff0d,0 5px 18px #00000014}
+.admin-dashboard:not(.admin-light-theme) :is(.card-heading h2,.card-wise h2,.stat-card strong){color:#f0eff7}
+.admin-dashboard:not(.admin-light-theme) :is(.metric-caption,.card-wise p,.chart-legend>span,.workload-label,.workload-legend,.assistant-answer,.admin-table th){color:#b3b0c3}
+.admin-dashboard:not(.admin-light-theme) .risk-score{color:#36c6aa}
+.admin-dashboard .progress-track span{background:linear-gradient(90deg,#16bb96,#39d9b6);box-shadow:0 0 10px #33b39a33}
+.admin-dashboard .workload-bar span:first-child{background:#18d3a0}
+.admin-dashboard .workload-bar span:nth-child(2){background:#54d51b}
+.admin-dashboard .workload-bar span:nth-child(3){background:#d5e725}
+.admin-dashboard:not(.admin-light-theme) .chart-legend i{background:#20d7ae}
+.admin-dashboard:not(.admin-light-theme) .chart-legend>span:nth-child(2) i{background:#36dc52}
+.admin-dashboard:not(.admin-light-theme) .chart-legend>span:nth-child(3) i{background:#d5e725}
+.admin-dashboard:not(.admin-light-theme) .health-ring{background:conic-gradient(#21d552 0 35%,#20d7ae 35% 46%,#d5e725 46% 60%,#292635 60% 100%)}
+.admin-dashboard .line-chart{filter:drop-shadow(0 0 4px #33b39a25)}
+.admin-dashboard.admin-light-theme :is(.dashboard-card,.card-wise,.stat-card){background:radial-gradient(ellipse at 0% 0%,#d9f4ed99,transparent 55%),#fff;border-color:#c9ddd5;box-shadow:inset 1px 1px 0 #ffffff,0 5px 18px #163d3010}
+.admin-dashboard:not(.admin-light-theme) .btn-wise.management-delete{background:#412331;border-color:#86445c;color:#ffc2d3}
+@media(hover:hover) and (pointer:fine){.admin-dashboard:not(.admin-light-theme) :is(.dashboard-card,.card-wise,.stat-card):hover{box-shadow:inset 1px 1px 0 #ffffff12,0 12px 28px #00000024}}
+
+/* Glass surfaces across the admin workspace. */
+.admin-dashboard:not(.admin-light-theme){background:radial-gradient(ellipse at 12% 12%,#215f582b,transparent 45%),radial-gradient(ellipse at 88% 75%,#51417125,transparent 50%),#100f18;background-attachment:fixed}
+.admin-dashboard:not(.admin-light-theme) :is(.dashboard-card,.card-wise,.stat-card,.session-box){background:linear-gradient(135deg,#ffffff0b,#ffffff02 55%),#1a192580;border:1px solid #ffffff1c;backdrop-filter:blur(18px) saturate(135%);-webkit-backdrop-filter:blur(18px) saturate(135%);box-shadow:inset 1px 1px 0 #ffffff12,0 8px 30px #0000001c}
+.admin-dashboard:not(.admin-light-theme) .admin-sidebar{background:linear-gradient(145deg,#ffffff0b,#ffffff02),#14131eb3;border-color:#ffffff20;backdrop-filter:blur(24px) saturate(140%);-webkit-backdrop-filter:blur(24px) saturate(140%);box-shadow:inset 1px 1px 0 #ffffff0d,0 10px 35px #00000022}
+.admin-dashboard:not(.admin-light-theme) :is(.admin-tool-search,.transaction-search,.quiet-button,.admin-theme-toggle){background:#ffffff06;border-color:#ffffff20}
+.admin-dashboard:not(.admin-light-theme) .preview-dialog{background:linear-gradient(135deg,#ffffff0c,transparent),#1a1925ed;border-color:#ffffff26;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 24px 80px #0005}
+.admin-dashboard.admin-light-theme{background:radial-gradient(ellipse at 10% 15%,#b8e5d566,transparent 45%),radial-gradient(ellipse at 85% 75%,#d5d6ef66,transparent 50%),#eef4f1;background-attachment:fixed}
+.admin-dashboard.admin-light-theme :is(.dashboard-card,.card-wise,.stat-card,.session-box){background:linear-gradient(135deg,#ffffffcc,#ffffff88);border:1px solid #ffffffd9;backdrop-filter:blur(18px) saturate(125%);-webkit-backdrop-filter:blur(18px) saturate(125%);box-shadow:inset 1px 1px 0 #fff,0 8px 28px #234b3c0c}
+.admin-dashboard.admin-light-theme .admin-sidebar{background:linear-gradient(145deg,#ffffffcc,#ffffff80);border-color:#ffffffdd;backdrop-filter:blur(24px) saturate(125%);-webkit-backdrop-filter:blur(24px) saturate(125%);box-shadow:inset 1px 1px 0 #fff,0 10px 30px #234b3c0c}
+.admin-dashboard.admin-light-theme :is(.admin-tool-search,.transaction-search,.quiet-button,.admin-theme-toggle){background:#ffffff80;border-color:#c5d8cf}
+.admin-dashboard.admin-light-theme .preview-dialog{background:#fffffff0;border-color:#ffffff;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);box-shadow:0 24px 80px #234b3c22}
+@supports not (backdrop-filter:blur(1px)){.admin-dashboard:not(.admin-light-theme) :is(.dashboard-card,.card-wise,.stat-card,.admin-sidebar){background:#1b1925}.admin-dashboard.admin-light-theme :is(.dashboard-card,.card-wise,.stat-card,.admin-sidebar){background:#f9fcfa}}
+
+/* Rounded utility bar inspired by the supplied dashboard reference. */
+.admin-dashboard .admin-topbar{min-height:88px;height:auto;padding:16px 0;gap:20px}
+.admin-dashboard .admin-topbar .topbar-actions{gap:10px;flex:1;justify-content:flex-end;min-width:0}
+.admin-dashboard .admin-topbar .quiet-button,.admin-dashboard .admin-topbar .date-label{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 15px;border-radius:999px;border:1px solid #ffffff16;background:#ffffff04;font-size:12px;color:#bbb8ca;white-space:nowrap;box-shadow:inset 0 1px 0 #ffffff05}
+.admin-dashboard .admin-topbar .quiet-button .admin-icon{width:19px;height:19px}
+.admin-dashboard .admin-topbar .date-label::before{content:"";width:18px;height:18px;flex-shrink:0;background:currentColor;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='1.7' stroke-linecap='round'%3E%3Crect x='3' y='5' width='18' height='16' rx='3'/%3E%3Cpath d='M7 3v4m10-4v4M3 10h18'/%3E%3C/svg%3E") center/contain no-repeat}
+.admin-dashboard .admin-topbar .admin-tool-search{width:clamp(180px,30vw,490px);min-height:44px;border-radius:999px;border:1px solid #ffffff20;padding:10px 17px;gap:10px;background:#ffffff04;box-shadow:inset 0 1px 0 #ffffff06;flex:0 1 490px}
+.admin-dashboard .admin-topbar .admin-tool-search input{font-size:12px}
+.admin-dashboard .admin-topbar .admin-tool-search>span{font-size:23px;line-height:1}
+.admin-dashboard .admin-topbar .notification-button{display:grid;place-items:center;width:44px;height:44px;flex:0 0 44px;border:1px solid #ffffff16;border-radius:50%;background:#ffffff04;color:#bbb8ca}
+.admin-dashboard .admin-topbar .notification-button .admin-icon{width:22px;height:22px}
+.admin-dashboard .admin-topbar .notification-button i{right:10px;top:9px;width:6px;height:6px;background:#ff934f;box-shadow:0 0 0 3px #1a1925}
+.admin-dashboard .admin-topbar .small-avatar{width:42px;height:42px;font-size:12px;border-radius:50%}
+.admin-dashboard .admin-topbar .admin-theme-toggle{width:42px;height:42px;flex-basis:42px;border-radius:50%}
+.admin-dashboard.admin-light-theme .admin-topbar :is(.quiet-button,.date-label,.admin-tool-search,.notification-button){background:#ffffff90;border-color:#cdded6;color:#52685f}
+.admin-dashboard.admin-light-theme .admin-topbar .notification-button i{box-shadow:0 0 0 3px #f4f9f6}
+@media(max-width:1180px){.admin-dashboard .admin-topbar>div:first-child{font-size:11px}.admin-dashboard .admin-topbar .date-label{display:none}.admin-dashboard .admin-topbar .admin-tool-search{flex-basis:280px;width:180px}}
+@media(max-width:760px){.admin-dashboard .admin-topbar{min-height:70px;padding:12px 0;gap:10px}.admin-dashboard .admin-topbar .topbar-actions{flex:0;gap:8px}.admin-dashboard .admin-topbar .admin-tool-search{display:none}.admin-dashboard .admin-topbar .notification-button{width:36px;height:36px;flex-basis:36px}.admin-dashboard .admin-topbar .small-avatar{width:34px;height:34px}.admin-dashboard .admin-topbar .quiet-button{padding:8px 10px;min-height:36px;font-size:10px}.admin-dashboard .admin-topbar .admin-theme-toggle{width:36px;height:36px;flex-basis:36px}}
+
+/* Glass utility bar and translucent pill controls. */
+.admin-dashboard .admin-topbar{background:linear-gradient(110deg,#ffffff08,#ffffff02);border:1px solid #ffffff12;border-radius:20px;padding:14px 18px;margin-top:14px;backdrop-filter:blur(22px) saturate(150%);-webkit-backdrop-filter:blur(22px) saturate(150%);box-shadow:inset 0 1px 0 #ffffff0a,0 8px 24px #0000000c}
+.admin-dashboard .admin-topbar :is(.quiet-button,.date-label,.admin-tool-search,.notification-button,.admin-theme-toggle){background:linear-gradient(135deg,#ffffff0e,#ffffff03);border:1px solid #ffffff20;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:inset 0 1px 0 #ffffff10,0 3px 10px #0000000c}
+.admin-dashboard .admin-topbar :is(.quiet-button,.notification-button,.admin-theme-toggle):hover{background:linear-gradient(135deg,#ffffff18,#ffffff08);border-color:#ffffff35}
+.admin-dashboard.admin-light-theme .admin-topbar{background:linear-gradient(110deg,#ffffff85,#ffffff40);border-color:#ffffffc9;box-shadow:inset 0 1px 0 #fff,0 8px 24px #234b3c08}
+.admin-dashboard.admin-light-theme .admin-topbar :is(.quiet-button,.date-label,.admin-tool-search,.notification-button,.admin-theme-toggle){background:linear-gradient(135deg,#ffffffa6,#ffffff4d);border-color:#ffffffd9;box-shadow:inset 0 1px 0 #fff,0 3px 10px #234b3c08;color:#465c55}
+.admin-dashboard.admin-light-theme .admin-topbar :is(.quiet-button,.notification-button,.admin-theme-toggle):hover{background:#ffffffcc;border-color:#b8d4c8}
+@media(max-width:760px){.admin-dashboard .admin-topbar{padding:10px 12px;margin-top:8px;border-radius:16px}}

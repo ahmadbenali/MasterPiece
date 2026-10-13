@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Static banking interface preview with the northBank homepage design style">
+<title>Users & accounts — northBank</title>
+<link rel="icon" href="../../assets/northbank-favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/workspace.css">
+<script src="../../js/workspace.js" defer>
+</script>
+<link rel="stylesheet" href="../../css/arrows.css"><script src="../../js/arrows.js" defer></script><link rel="stylesheet" href="../../css/admin-dashboard.css"><script src="../../js/admin-shell.js" defer></script><script src="../../js/admin-management.js" defer></script></head>
+<body class="admin-dashboard admin-workspace-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<aside class="admin-sidebar">
+<a class="admin-brand" href="../home/home.html"><img src="../../assets/northbank-favicon.svg" alt=""><span>northBank<span class="brand-caption">OPERATIONS</span></span></a>
+<button class="admin-mobile-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="workspaceLinks">☰</button>
+<nav class="admin-navigation" id="workspaceLinks" aria-label="Admin navigation">
+<p class="nav-section-label">WORKSPACE</p>
+<a href="admin.html"><span aria-hidden="true">▦</span> Overview</a>
+<a href="admin-stream.html"><span aria-hidden="true">↔</span> Live stream <small>128</small></a>
+<a href="admin-flagged.html"><span aria-hidden="true">⚑</span> Flagged transactions <small>18</small></a>
+<a href="admin-cases.html"><span aria-hidden="true">▤</span> Case management</a>
+<a href="admin-reports.html"><span aria-hidden="true">▥</span> Reports</a>
+<p class="nav-section-label">INTELLIGENCE</p>
+<a href="admin-investigation.html"><span aria-hidden="true">◎</span> Investigation</a>
+<a href="admin-assessment.html"><span aria-hidden="true">✧</span> AI assessment</a>
+<a href="admin-decision.html"><span aria-hidden="true">⑂</span> Decision desk</a>
+<p class="nav-section-label">SETTINGS</p>
+<a href="admin-credentials.html"><span aria-hidden="true">⚙</span> Staff credentials</a>
+<a href="admin-management.html" aria-current="page"><span aria-hidden="true">⚙</span> Users &amp; accounts</a>
+<a href="../login/login.html" data-logout><span aria-hidden="true">↗</span> Log out</a>
+</nav>
+<div class="sidebar-bottom"><div class="station-card"><span class="live-dot"></span><div>Station is active<small>All systems operational</small></div></div><div class="admin-profile"><span class="avatar">JD</span><div>Jordan Davis<small>Fraud operations analyst</small></div><span class="profile-mark">✓</span></div></div>
+</aside>
+<main id="main" class="workspace-main admin-main"><header class="admin-topbar"><div><span class="breadcrumb">Workspace /</span> Users & accounts</div><div class="topbar-actions"><a class="quiet-button" href="admin-reports.html">▥ <span>Reports</span></a><span class="date-label" id="dashboardDate">Operations desk</span><label class="admin-tool-search"><span aria-hidden="true">⌕</span><input type="search" placeholder="Search admin tools…" aria-label="Search admin tools"></label><a class="notification-button" href="admin-flagged.html" aria-label="18 flagged transactions">♧<i></i></a><span class="avatar small-avatar" aria-label="Jordan Davis">JD</span></div></header>
+<section class="page-hero">
+<div class="page-wrap">
+<div class="hero-topline">
+<div class="eyebrow">Fraud operations · Admin workspace</div>
+</div>
+<h1 class="display-title">Users &amp; accounts</h1>
+<p>Review users and accounts, then confirm any deletion.</p>
+</div>
+</section>
+<div class="page-wrap content-area">
+<div class="notice">Static preview: deleting a row only changes this page. No real users or accounts are deleted.</div>
+<section class="card-wise" data-management-section><h2>Users</h2><label class="field">Search users<input type="search" data-management-search placeholder="Search users…"></label><div class="table-scroll"><table class="wise-table"><thead><tr><th scope="col">User</th><th scope="col">Email</th><th scope="col">Status</th><th scope="col">Action</th></tr></thead><tbody><tr><td>Alex Morgan</td><td>alex.morgan@example.com</td><td>Active</td><td><button type="button" class="btn-wise btn-outline management-delete" data-delete-kind="user" data-delete-label="Alex Morgan"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M9 6V4h6v2M5 6l1 14h12l1-14M10 10v6m4-6v6"/></svg><span>Delete user</span></button></td></tr><tr><td>Jordan Lee</td><td>jordan.lee@example.com</td><td>Active</td><td><button type="button" class="btn-wise btn-outline management-delete" data-delete-kind="user" data-delete-label="Jordan Lee"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M9 6V4h6v2M5 6l1 14h12l1-14M10 10v6m4-6v6"/></svg><span>Delete user</span></button></td></tr><tr><td>Sam Taylor</td><td>sam.taylor@example.com</td><td>Inactive</td><td><button type="button" class="btn-wise btn-outline management-delete" data-delete-kind="user" data-delete-label="Sam Taylor"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M9 6V4h6v2M5 6l1 14h12l1-14M10 10v6m4-6v6"/></svg><span>Delete user</span></button></td></tr></tbody></table></div><p class="small-copy" data-management-empty hidden>No matching records.</p></section>
+<section class="card-wise" data-management-section><h2>Accounts</h2><label class="field">Search accounts<input type="search" data-management-search placeholder="Search accounts…"></label><div class="table-scroll"><table class="wise-table"><thead><tr><th scope="col">Account</th><th scope="col">Owner</th><th scope="col">Status</th><th scope="col">Action</th></tr></thead><tbody><tr><td>Checking •••• 1234</td><td>Alex Morgan</td><td>Active</td><td><button type="button" class="btn-wise btn-outline management-delete" data-delete-kind="account" data-delete-label="Checking •••• 1234"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M9 6V4h6v2M5 6l1 14h12l1-14M10 10v6m4-6v6"/></svg><span>Delete account</span></button></td></tr><tr><td>Savings •••• 5678</td><td>Alex Morgan</td><td>Active</td><td><button type="button" class="btn-wise btn-outline management-delete" data-delete-kind="account" data-delete-label="Savings •••• 5678"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M9 6V4h6v2M5 6l1 14h12l1-14M10 10v6m4-6v6"/></svg><span>Delete account</span></button></td></tr><tr><td>Checking •••• 9012</td><td>Jordan Lee</td><td>Inactive</td><td><button type="button" class="btn-wise btn-outline management-delete" data-delete-kind="account" data-delete-label="Checking •••• 9012"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M9 6V4h6v2M5 6l1 14h12l1-14M10 10v6m4-6v6"/></svg><span>Delete account</span></button></td></tr></tbody></table></div><p class="small-copy" data-management-empty hidden>No matching records.</p></section>
+<p id="managementStatus" role="status"></p><button type="button" class="btn-wise btn-outline" id="undoManagementDelete" hidden>Undo last deletion</button>
+</div>
+</main>
+<footer class="workspace-footer">
+<div class="page-wrap">
+<span>© 2026 · Independent static showcase. Static banking design preview.</span>
+<span>All balances, identities and actions are illustrative.</span>
+</div>
+</footer>
+<div class="workspace-toast" id="toast" role="status" hidden>
+</div>
+<dialog id="previewDialog" class="preview-dialog">
+<button class="close-dialog" aria-label="Close dialog">×</button>
+<h2>Preview information</h2>
+<p id="dialogCopy">
+</p>
+<button class="btn-wise btn-dark" data-dialog-close>Got it</button>
+</dialog>
+<dialog class="preview-dialog" id="managementDeleteDialog" aria-labelledby="managementDeleteTitle" aria-describedby="managementDeleteCopy"><h2 id="managementDeleteTitle">Confirm deletion</h2><p id="managementDeleteCopy"></p><div class="button-row"><button type="button" class="btn-wise btn-danger" id="confirmManagementDelete">Confirm delete</button><button type="button" class="btn-wise btn-outline" id="cancelManagementDelete" autofocus>Cancel</button></div></dialog></body>
+</html>
