@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Static banking interface preview with the northBank homepage design style">
+<title>Customer confirmations — northBank</title>
+<link rel="icon" href="../../assets/northbank-favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/workspace.css">
+<script src="../../js/workspace.js" defer>
+</script>
+<link rel="stylesheet" href="../../css/arrows.css"><script src="../../js/arrows.js" defer></script><link rel="stylesheet" href="../../css/admin-dashboard.css"><script src="../../js/admin-shell.js" defer></script><script src="../../js/admin-features.js" defer></script></head>
+<body class="admin-dashboard admin-workspace-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<aside class="admin-sidebar">
+<a class="admin-brand" href="../home/home.html"><img src="../../assets/northbank-favicon.svg" alt=""><span>northBank<span class="brand-caption">OPERATIONS</span></span></a>
+<button class="admin-mobile-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="workspaceLinks">☰</button>
+<nav class="admin-navigation" id="workspaceLinks" aria-label="Admin navigation">
+<p class="nav-section-label">WORKSPACE</p>
+<a href="admin.html"><span aria-hidden="true">▦</span> Overview</a>
+<a href="admin-stream.html"><span aria-hidden="true">↔</span> Live stream <small>128</small></a>
+<a href="admin-flagged.html"><span aria-hidden="true">⚑</span> Flagged transactions <small>18</small></a>
+<a href="admin-cases.html"><span aria-hidden="true">▤</span> Case management</a>
+<a href="admin-reports.html"><span aria-hidden="true">▥</span> Reports</a>
+<p class="nav-section-label">INTELLIGENCE</p>
+<a href="admin-investigation.html"><span aria-hidden="true">◎</span> Investigation</a>
+<a href="admin-assessment.html"><span aria-hidden="true">✧</span> AI assessment</a>
+<a href="admin-decision.html"><span aria-hidden="true">⑂</span> Decision desk</a>
+<a href="admin-confirmations.html" aria-current="page"><span aria-hidden="true">◎</span> Customer confirmations</a>
+<a href="admin-rules.html"><span aria-hidden="true">◎</span> Fraud rules</a>
+<p class="nav-section-label">SETTINGS</p>
+<a href="admin-credentials.html"><span aria-hidden="true">⚙</span> Staff credentials</a>
+<a href="admin-management.html"><span aria-hidden="true">⚙</span> Users &amp; accounts</a>
+<a href="../login/login.html" data-logout><span aria-hidden="true">↗</span> Log out</a>
+</nav>
+<div class="sidebar-bottom"><div class="station-card"><span class="live-dot"></span><div>Station is active<small>All systems operational</small></div></div><div class="admin-profile"><span class="avatar">JD</span><div>Jordan Davis<small>Fraud operations analyst</small></div><span class="profile-mark">✓</span></div></div>
+</aside>
+<main id="main" class="workspace-main admin-main"><header class="admin-topbar"><div><span class="breadcrumb">Workspace /</span> Customer confirmations</div><div class="topbar-actions"><a class="quiet-button" href="admin-reports.html">▥ <span>Reports</span></a><span class="date-label" id="dashboardDate">Operations desk</span><label class="admin-tool-search"><span aria-hidden="true">⌕</span><input type="search" placeholder="Search admin tools…" aria-label="Search admin tools"></label><a class="notification-button" href="admin-flagged.html" aria-label="18 flagged transactions">♧<i></i></a><span class="avatar small-avatar" aria-label="Jordan Davis">JD</span></div></header>
+<section class="page-hero">
+<div class="page-wrap">
+<div class="hero-topline">
+<div class="eyebrow">Fraud operations · Admin workspace</div>
+</div>
+<h1 class="display-title">Customer confirmations</h1>
+<p>Illustrative operations workspace. No live account or detection settings are changed.</p>
+</div>
+</section>
+<div class="page-wrap content-area"><section class="card-wise"><h2>Suspicious transfer responses</h2><label class="field">Response status<select id="confirmationFilter"><option value="all">All responses</option><option value="recognized">Recognized</option><option value="unrecognized">Not recognized</option><option value="pending">Awaiting response</option></select></label><div class="table-scroll"><table class="wise-table"><thead><tr><th>Transfer</th><th>Customer</th><th>Amount</th><th>Response</th><th>Updated (Amman)</th><th>Action</th></tr></thead><tbody><tr data-response="unrecognized"><td>TX-9024</td><td>Alex Morgan</td><td>$18,450.00</td><td><span class="status-badge danger">Not recognized</span></td><td>14 Oct 2026 · 09:42</td><td><a href="admin-investigation.html">Review investigation →</a></td></tr><tr data-response="recognized"><td>TX-2048</td><td>Jordan Lee</td><td>$4,800.00</td><td><span class="status-badge">Recognized</span></td><td>14 Oct 2026 · 09:18</td><td><a href="admin-investigation-2048.html">Review investigation →</a></td></tr><tr data-response="pending"><td>TX-2046</td><td>Sam Taylor</td><td>$1,250.00</td><td><span class="status-badge warn">Awaiting response</span></td><td>Request sent · 08:55</td><td>Pending customer review</td></tr></tbody></table></div><p id="confirmationEmpty" hidden>No responses match this filter.</p><div class="notice">Sample responses only. No messages are sent to customers.</div></section></div>
+</main>
+<footer class="workspace-footer">
+<div class="page-wrap">
+<span>© 2026 · Independent static showcase. Static banking design preview.</span>
+<span>All balances, identities and actions are illustrative.</span>
+</div>
+</footer>
+<div class="workspace-toast" id="toast" role="status" hidden>
+</div>
+<dialog id="previewDialog" class="preview-dialog">
+<button class="close-dialog" aria-label="Close dialog">×</button>
+<h2>Preview information</h2>
+<p id="dialogCopy">
+</p>
+<button class="btn-wise btn-dark" data-dialog-close>Got it</button>
+</dialog>
+</body>
+</html>

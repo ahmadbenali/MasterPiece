@@ -95,7 +95,7 @@
   let refreshNavigation = () => {};
   if (sidebar) {
     sidebar.querySelector('.admin-brand').setAttribute('aria-label', 'northBank home');
-    const names = ['overview','stream','flagged','cases','reports','investigation','assessment','decision','credentials','credentials','logout'];
+    const names = ['overview','stream','flagged','cases','reports','investigation','assessment','decision','decision','assessment','credentials','credentials','logout'];
     sidebar.querySelectorAll('.admin-navigation>a').forEach((link, index) => {
       const label = [...link.childNodes].filter(node => node.nodeType === Node.TEXT_NODE).map(node => node.textContent).join('').trim();
       link.setAttribute('aria-label', label);

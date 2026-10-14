@@ -327,3 +327,20 @@
 .admin-dashboard.admin-light-theme .admin-topbar :is(.quiet-button,.date-label,.admin-tool-search,.notification-button,.admin-theme-toggle){background:linear-gradient(135deg,#ffffffa6,#ffffff4d);border-color:#ffffffd9;box-shadow:inset 0 1px 0 #fff,0 3px 10px #234b3c08;color:#465c55}
 .admin-dashboard.admin-light-theme .admin-topbar :is(.quiet-button,.notification-button,.admin-theme-toggle):hover{background:#ffffffcc;border-color:#b8d4c8}
 @media(max-width:760px){.admin-dashboard .admin-topbar{padding:10px 12px;margin-top:8px;border-radius:16px}}
+
+/* Consistent, readable management and confirmation controls in both themes. */
+.admin-dashboard.admin-light-theme .btn-wise.btn-outline:not(.management-delete){background:#ffffffa6;border-color:#b8d2c7;color:#205e4f}
+.admin-dashboard.admin-light-theme .btn-wise.btn-outline:not(.management-delete):hover{background:#dceee6;border-color:#70a590;color:#174b3d}
+.admin-dashboard:not(.admin-light-theme) .btn-wise.btn-outline:not(.management-delete):hover{background:#29453f;border-color:#4e897a;color:#e4fff5}
+.admin-dashboard.admin-light-theme .wise-table a:not(.btn-wise){color:#176c56;text-decoration:underline;text-underline-offset:3px}
+.admin-dashboard.admin-light-theme .wise-table a:not(.btn-wise):hover{color:#104b3c}
+.admin-dashboard .wise-table td:last-child .btn-wise{margin:3px 5px 3px 0;white-space:nowrap;font-size:12px;min-height:38px;padding:9px 13px}
+.admin-dashboard [data-management-section]>.field{display:block;max-width:420px;margin:16px 0 20px}
+.admin-dashboard [data-management-search]{width:100%;margin-top:7px;min-height:42px}
+.admin-dashboard #confirmationFilter{display:block;margin-top:7px;min-height:42px;max-width:320px;width:100%}
+.admin-dashboard.admin-light-theme :is([data-management-search],#confirmationFilter){background:#f6faf8;color:#213a36;border-color:#b8d2c7;color-scheme:light}
+.admin-dashboard.admin-light-theme [data-management-search]::placeholder{color:#65786f}
+.admin-dashboard.admin-light-theme .wise-table small{color:#52685f}
+.admin-dashboard .wise-table .status-badge{white-space:nowrap}
+.admin-dashboard .preview-dialog .button-row{gap:10px;flex-wrap:wrap}
+.admin-dashboard.admin-light-theme .preview-dialog p{color:#465c55}

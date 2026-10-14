@@ -274,7 +274,7 @@ function updateReviews() {
   });
   byId("prevReview").disabled = reviewIndex === 0;
   byId("nextReview").disabled = reviewIndex === reviews.length - 1;
-  reviewStatus.textContent = `Review ${reviewIndex + 1} of ${reviews.length}`;
+  reviewStatus.textContent = `Feature ${reviewIndex + 1} of ${reviews.length}`;
 }
 byId("prevReview").addEventListener("click", () => {
   reviewIndex = Math.max(0, reviewIndex - 1);
