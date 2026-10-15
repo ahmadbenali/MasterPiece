@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script src="../../js/manager-access.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Static banking interface preview with the northBank homepage design style">
+<title>Agent management — northBank showcase</title>
+<link rel="icon" href="../../assets/northbank-favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/workspace.css">
+<script src="../../js/workspace.js" defer>
+</script>
+<link rel="stylesheet" href="../../css/arrows.css"><script src="../../js/arrows.js" defer></script><link rel="stylesheet" href="../../css/admin-dashboard.css"><script src="../../js/admin-shell.js" defer></script><script src="../../js/manager.js" defer></script></head>
+<body class="admin-dashboard admin-workspace-page">
+<a class="skip-link" href="#main">Skip to content</a>
+<aside class="admin-sidebar">
+<a class="admin-brand" href="../home/home.html"><img src="../../assets/northbank-favicon.svg" alt=""><span>northBank<span class="brand-caption">OPERATIONS</span></span></a>
+<button class="admin-mobile-toggle" id="navToggle" aria-label="Open navigation" aria-expanded="false" aria-controls="workspaceLinks">☰</button>
+<nav class="admin-navigation" id="workspaceLinks" aria-label="Admin navigation">
+<p class="nav-section-label">WORKSPACE</p>
+<a href="../admin/admin.html"><span aria-hidden="true">▦</span> Overview</a>
+<a href="../admin/admin-stream.html"><span aria-hidden="true">↔</span> Live stream <small>128</small></a>
+<a href="../admin/admin-flagged.html"><span aria-hidden="true">⚑</span> Flagged transactions <small>18</small></a>
+<a href="../admin/admin-cases.html"><span aria-hidden="true">▤</span> Case management</a>
+<a href="../admin/admin-reports.html"><span aria-hidden="true">▥</span> Reports</a>
+<p class="nav-section-label">INTELLIGENCE</p>
+<a href="../admin/admin-investigation.html"><span aria-hidden="true">◎</span> Investigation</a>
+<a href="../admin/admin-assessment.html"><span aria-hidden="true">✧</span> AI assessment</a>
+<a href="../admin/admin-decision.html"><span aria-hidden="true">⑂</span> Decision desk</a>
+<a href="../admin/admin-confirmations.html"><span aria-hidden="true">◎</span> Customer confirmations</a>
+<a href="../admin/admin-rules.html"><span aria-hidden="true">◎</span> Fraud rules</a>
+<p class="nav-section-label">SETTINGS</p>
+<a href="../admin/admin-credentials.html"><span aria-hidden="true">⚙</span> Staff credentials</a>
+<a href="../admin/admin-management.html"><span aria-hidden="true">⚙</span> Customers &amp; accounts</a>
+<a href="../admin/admin-settings.html"><span aria-hidden="true">⚙</span> Agent settings</a>
+<a href="manager.html" aria-current="page"><span aria-hidden="true">◎</span> Agent management</a>
+<a href="../login/login.html" data-logout><span aria-hidden="true">↗</span> Log out</a>
+</nav>
+</aside>
+<main id="main" class="workspace-main admin-main"><header class="admin-topbar"><div><span class="breadcrumb">Workspace /</span> Agent management</div><div class="topbar-actions"><a class="quiet-button" href="#agents">▥ <span>Reports</span></a><span class="date-label" id="dashboardDate">Operations desk</span><label class="admin-tool-search"><span aria-hidden="true">⌕</span><input type="search" placeholder="Search manager tools…" aria-label="Search manager tools"></label><a class="notification-button" href="#agents" aria-label="18 flagged transactions">♧<i></i></a><a class="avatar small-avatar admin-settings-link" href="#agents" aria-label="Agent management" title="Agent management">JD</a></div></header>
+<section class="page-hero">
+<div class="page-wrap">
+<div class="hero-topline">
+<div class="eyebrow">Fraud operations · Manager workspace</div>
+</div>
+<h1 class="display-title">Agent management</h1>
+<p>Add agents, review their access, and manage your team.</p>
+</div>
+</section>
+<div class="page-wrap content-area"><div class="notice">Manager preview · agents are stored in this browser only. Creating an agent does not provision real credentials or access.</div><section class="card-wise" id="agents"><div class="assessment-model-heading"><h2>Your agents</h2><button type="button" class="btn-wise btn-dark" id="addAgent">+ Add agent</button></div><label class="field">Search agents<input type="search" id="agentSearch" placeholder="Search name or email"></label><div class="table-scroll"><table class="wise-table"><thead><tr><th>Name</th><th>Email</th><th>Status</th><th>Actions</th></tr></thead><tbody id="agentRows"></tbody></table></div><p id="agentEmpty" hidden>No matching agents.</p><p id="agentStatus" role="status"></p></section></div>
+</main>
+<footer class="workspace-footer">
+<div class="page-wrap">
+<span>© 2026 · Independent static showcase. Static banking design preview.</span>
+<span>All balances, identities and actions are illustrative.</span>
+</div>
+</footer>
+<div class="workspace-toast" id="toast" role="status" hidden>
+</div>
+<dialog id="previewDialog" class="preview-dialog">
+<button class="close-dialog" aria-label="Close dialog">×</button>
+<h2>Preview information</h2>
+<p id="dialogCopy">
+</p>
+<button class="btn-wise btn-dark" data-dialog-close>Got it</button>
+</dialog>
+<dialog id="agentEditor" class="preview-dialog" aria-labelledby="agentEditorTitle"><h2 id="agentEditorTitle">Add agent</h2><form id="agentForm"><div class="field"><label>Full name<input name="name" required maxlength="100" autocomplete="off"></label></div><div class="field"><label>Email address<input name="email" type="email" required maxlength="150" autocomplete="off"></label></div><p id="agentFormError" role="alert"></p><div class="button-row"><button class="btn-wise btn-dark" type="submit">Save agent</button><button class="btn-wise btn-outline" type="button" id="cancelAgentEditor">Cancel</button></div></form></dialog><dialog id="agentDeleteDialog" class="preview-dialog" aria-labelledby="agentDeleteTitle"><h2 id="agentDeleteTitle">Delete agent?</h2><p id="agentDeleteCopy"></p><div class="button-row"><button class="btn-wise btn-danger" type="button" id="confirmAgentDelete">Delete agent</button><button class="btn-wise btn-outline" type="button" id="cancelAgentDelete" autofocus>Cancel</button></div></dialog></body>
+</html>

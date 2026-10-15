@@ -94,13 +94,24 @@
   const sidebar = document.querySelector('.admin-sidebar');
   let refreshNavigation = () => {};
   if (sidebar) {
+    let manager = false;
+    try { manager = sessionStorage.getItem('northbank-preview-role') === 'manager'; } catch {}
+    if (!manager) sidebar.querySelector('a[href$="admin-rules.html"]')?.remove();
+    if (manager && !sidebar.querySelector('a[href*="manager.html"]')) {
+      const agents = document.createElement('a');
+      agents.href = '../manager/manager.html';
+      agents.innerHTML = '<span aria-hidden="true"></span> Agent management';
+      sidebar.querySelector('[data-logout]')?.before(agents);
+    }
     sidebar.querySelector('.admin-brand').setAttribute('aria-label', 'northBank home');
-    const names = ['overview','stream','flagged','cases','reports','investigation','assessment','decision','decision','assessment','credentials','credentials','logout'];
+    const names = ['overview','stream','flagged','cases','reports','investigation','assessment','decision','decision','assessment','credentials','credentials','credentials','logout'];
     sidebar.querySelectorAll('.admin-navigation>a').forEach((link, index) => {
       const label = [...link.childNodes].filter(node => node.nodeType === Node.TEXT_NODE).map(node => node.textContent).join('').trim();
       link.setAttribute('aria-label', label);
       link.title = label;
-      link.querySelector('span').replaceChildren(icon(names[index]));
+      const href = link.getAttribute('href');
+      const iconName = href.includes('manager.html') ? 'credentials' : href.includes('login.html') ? 'logout' : href.includes('rules') ? 'assessment' : href.includes('confirmations') ? 'decision' : href.includes('settings') || href.includes('management') || href.includes('credentials') ? 'credentials' : href.includes('decision') ? 'decision' : href.includes('assessment') ? 'assessment' : href.includes('investigation') ? 'investigation' : href.includes('reports') ? 'reports' : href.includes('cases') ? 'cases' : href.includes('flagged') ? 'flagged' : href.includes('stream') ? 'stream' : 'overview';
+      link.querySelector('span').replaceChildren(icon(iconName));
       const text = document.createElement('span');
       text.className = 'admin-nav-label';
       text.textContent = label;

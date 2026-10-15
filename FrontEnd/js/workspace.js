@@ -26,7 +26,7 @@ if (logoutLinks.length) {
   logoutDialog.className = 'preview-dialog logout-dialog';
   logoutDialog.setAttribute('aria-labelledby', 'logoutTitle');
   logoutDialog.setAttribute('aria-describedby', 'logoutDescription');
-  logoutDialog.innerHTML = '<h2 id="logoutTitle">Log out of your account?</h2><p id="logoutDescription">Are you sure you want to log out? You can log in again as a user or admin.</p><div class="logout-dialog-actions"><button type="button" class="btn-wise btn-outline" data-logout-cancel autofocus>Stay logged in</button><button type="button" class="btn-wise btn-dark" data-logout-confirm>Log out</button></div>';
+  logoutDialog.innerHTML = '<h2 id="logoutTitle">Log out of your account?</h2><p id="logoutDescription">Are you sure you want to log out? You can log in again as a customer or agent.</p><div class="logout-dialog-actions"><button type="button" class="btn-wise btn-outline" data-logout-cancel autofocus>Stay logged in</button><button type="button" class="btn-wise btn-dark" data-logout-confirm>Log out</button></div>';
   document.body.append(logoutDialog);
   let logoutDestination;
   logoutLinks.forEach(link => link.addEventListener('click', event => {

@@ -6,9 +6,17 @@ function setMode(mode) {
   currentMode = mode;
   const signup = mode === "signup";
   const roleControls = document.querySelector(".role-buttons");
-  if (roleControls) roleControls.hidden = false;
+  if (signup) {
+    selectedRole = 'personal';
+    if (roleSelect) roleSelect.value = selectedRole;
+    updateRole();
+  }
+  if (roleControls) roleControls.hidden = signup;
+  roleSelect?.querySelectorAll('option').forEach(option => {
+    if (option.value === 'admin') option.disabled = signup;
+  });
   roleButtons.forEach(button => {
-    const role = button.dataset.accessRole === 'admin' ? 'admin' : 'user';
+    const role = {admin:'agent',manager:'manager',personal:'customer'}[button.dataset.accessRole];
     button.textContent = `${signup ? 'Sign up' : 'Log in'} as ${role}`;
   });
   modeButtons.forEach((button) =>
@@ -26,7 +34,7 @@ function setMode(mode) {
     ? "Already have an account?"
     : "New to northBank?";
   document.getElementById("alternateMode").textContent = signup
-    ? "Sign in "
+    ? "Log in "
     : "Open a new account →";
   document.getElementById("formMessage").hidden = true;
 }
@@ -50,7 +58,7 @@ let selectedRole = roleSelect?.value || "personal";
 function updateRole() {
   if (!roleSelect && !roleButtons.length) return;
   form.elements.email.value =
-    selectedRole === "admin"
+    selectedRole === "manager" ? "manager@northbank.com" : selectedRole === "admin"
       ? "j.davis@northbank.com"
       : "alex.morgan@email.com";
   roleButtons.forEach((button) =>
@@ -62,7 +70,7 @@ function updateRole() {
   const badge = document.querySelector(".access-badge");
   if (badge)
     badge.textContent =
-      selectedRole === "admin" ? "STAFF ACCESS" : "CUSTOMER ACCESS";
+      selectedRole === "manager" ? "MANAGER ACCESS" : selectedRole === "admin" ? "AGENT ACCESS" : "CUSTOMER ACCESS";
 }
 roleSelect?.addEventListener("change", () => {
   selectedRole = roleSelect.value;
@@ -70,6 +78,7 @@ roleSelect?.addEventListener("change", () => {
 });
 roleButtons.forEach((button) =>
   button.addEventListener("click", () => {
+    if (currentMode === 'signup' && button.dataset.accessRole !== 'personal') return;
     selectedRole = button.dataset.accessRole;
     if (roleSelect) roleSelect.value = selectedRole;
     updateRole();
@@ -78,12 +87,14 @@ roleButtons.forEach((button) =>
 updateRole();
 form.addEventListener("submit", (event) => {
   event.preventDefault();
+  if (currentMode === 'signup' && selectedRole !== 'personal') return;
   const route = roleSelect || roleButtons.length
-    ? selectedRole === "admin"
+    ? selectedRole === "manager" ? "../manager/manager.html" : selectedRole === "admin"
       ? "../admin/admin.html"
       : "../user/user.html"
     : form.getAttribute("action");
-  window.location.assign(route);
+  try { sessionStorage.setItem('northbank-preview-role', selectedRole); } catch {}
+  window.location.assign(selectedRole === 'manager' ? '../admin/admin.html' : route);
 });
 if (new URLSearchParams(window.location.search).get("mode") === "signup")
   setMode("signup");

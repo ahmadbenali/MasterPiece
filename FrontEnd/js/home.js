@@ -360,28 +360,28 @@ requestAnimationFrame(() =>
   ),
 );
 
-const animationButton = byId("animationToggle");
 const securityVideo = byId("securityVideo");
-animationButton.addEventListener("click", () => {
-  const paused = !securityVideo.paused;
-  if (paused) securityVideo.pause();
-  else securityVideo.play().catch(() => {});
-  animationButton.setAttribute("aria-pressed", String(paused));
-  animationButton.setAttribute(
-    "aria-label",
-    paused ? "Play security animation" : "Pause security animation",
-  );
-  animationButton.textContent = paused ? "▷" : "Ⅱ";
-});
+const securityAnimation = securityVideo?.closest(".security-image");
+if (securityAnimation) {
+  securityAnimation.setAttribute("tabindex", "0");
+  securityAnimation.setAttribute("aria-label", "Account security animation");
+  const playSecurity = () => {
+    if (!reducedMotion.matches) securityVideo.play().catch(() => {});
+  };
+  securityAnimation.addEventListener("pointerenter", playSecurity);
+  securityAnimation.addEventListener("pointerleave", () => securityVideo.pause());
+  securityAnimation.addEventListener("focus", playSecurity);
+  securityAnimation.addEventListener("blur", () => securityVideo.pause());
+  securityAnimation.addEventListener("pointerdown", event => {
+    if (event.pointerType === "touch") playSecurity();
+  });
+}
 function applyMotionPreference() {
   if (!reducedMotion.matches) return;
   document.querySelectorAll("video").forEach((video) => video.pause());
   document
     .querySelectorAll(".scroll-reveal")
     .forEach((element) => element.classList.add("is-visible"));
-  animationButton.setAttribute("aria-label", "Play security animation");
-  animationButton.setAttribute("aria-pressed", "true");
-  animationButton.textContent = "▷";
 }
 reducedMotion.addEventListener("change", applyMotionPreference);
 applyMotionPreference();

@@ -126,3 +126,7 @@
   .reference-auth .input-line input{padding:9px 0}
   .reference-auth .auth-form-wrap h1{font-size:28px}
 }
+
+.reference-auth .role-buttons{grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+.reference-auth .role-button{font-size:11px;padding:10px 5px}
+@media(max-width:400px){.reference-auth .role-buttons{grid-template-columns:1fr}.reference-auth .role-button{padding:8px}}
