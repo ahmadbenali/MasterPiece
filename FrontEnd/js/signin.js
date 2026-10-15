@@ -84,6 +84,8 @@ roleButtons.forEach((button) =>
     updateRole();
   }),
 );
+const requestedRole = new URLSearchParams(window.location.search).get('role');
+if (['personal','admin','manager'].includes(requestedRole)) selectedRole = requestedRole;
 updateRole();
 form.addEventListener("submit", (event) => {
   event.preventDefault();
