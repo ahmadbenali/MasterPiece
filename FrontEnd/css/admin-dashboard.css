@@ -385,3 +385,45 @@
 .admin-dashboard .admin-settings-link:hover{color:inherit;transform:translateY(-2px);box-shadow:0 0 0 3px #33b39a30}
 .admin-dashboard .admin-settings-link:focus-visible{outline:2px solid #33b39a;outline-offset:4px}
 @media(prefers-reduced-motion:reduce){.admin-dashboard .admin-settings-link{transition:none}.admin-dashboard .admin-settings-link:hover{transform:none}}
+
+/* Unified glass treatment for the full staff workspace, not only the toolbar. */
+.admin-dashboard{--glass-blur:22px}
+.admin-dashboard:not(.admin-light-theme){--glass-surface:rgba(29,38,49,.48);--glass-border:rgba(190,239,229,.22);--glass-highlight:rgba(255,255,255,.12);background:radial-gradient(ellipse at 8% 8%,#216c6473,transparent 48%),radial-gradient(ellipse at 92% 35%,#5350805c,transparent 48%),radial-gradient(ellipse at 45% 100%,#175c505c,transparent 55%),#10141e;background-attachment:fixed}
+.admin-dashboard.admin-light-theme{--glass-surface:rgba(255,255,255,.48);--glass-border:rgba(255,255,255,.85);--glass-highlight:rgba(255,255,255,.95);background:radial-gradient(ellipse at 8% 8%,#a3dbd1a6,transparent 48%),radial-gradient(ellipse at 92% 35%,#c5c5e7a6,transparent 48%),radial-gradient(ellipse at 45% 100%,#b4dfcaa6,transparent 55%),#e8f0ee;background-attachment:fixed}
+.admin-dashboard:not(.admin-light-theme) :is(.dashboard-card,.card-wise,.stat-card,.session-box),.admin-dashboard.admin-light-theme :is(.dashboard-card,.card-wise,.stat-card,.session-box){background:linear-gradient(135deg,var(--glass-highlight),transparent 40%),var(--glass-surface);border:1px solid var(--glass-border);backdrop-filter:blur(var(--glass-blur)) saturate(145%);-webkit-backdrop-filter:blur(var(--glass-blur)) saturate(145%);box-shadow:inset 1px 1px 0 var(--glass-highlight),inset -1px -1px 0 #ffffff04,0 12px 32px #0a15251a}
+.admin-dashboard:not(.admin-light-theme) .admin-sidebar,.admin-dashboard.admin-light-theme .admin-sidebar{background:linear-gradient(145deg,var(--glass-highlight),transparent 45%),var(--glass-surface);border:1px solid var(--glass-border);backdrop-filter:blur(28px) saturate(150%);-webkit-backdrop-filter:blur(28px) saturate(150%);box-shadow:inset 1px 1px 0 var(--glass-highlight),0 12px 40px #0a15251a}
+.admin-dashboard:not(.admin-light-theme) :is(.wise-table th,.admin-table th){background:#ffffff06;color:#d0d8df}
+.admin-dashboard.admin-light-theme :is(.wise-table th,.admin-table th){background:#ffffff45;color:#344e48}
+.admin-dashboard :is(.wise-table td,.admin-table td){background:transparent}
+.admin-dashboard:not(.admin-light-theme) :is(.wise-table td,.admin-table td){border-color:#d0e8e51a}
+.admin-dashboard.admin-light-theme :is(.wise-table td,.admin-table td){border-color:#597f7026}
+.admin-dashboard:not(.admin-light-theme) :is(.option-card,.notice,.assistant-message){background:#ffffff06;border-color:#d0e8e526}
+.admin-dashboard.admin-light-theme :is(.option-card,.notice,.assistant-message){background:#ffffff50;border-color:#ffffffb3}
+.admin-dashboard:not(.admin-light-theme) .option-card:has(input:checked){background:linear-gradient(110deg,#33b39a30,#33b39a0d);border-color:#5bd6bc99}
+.admin-dashboard.admin-light-theme .option-card:has(input:checked){background:#c8ebdfa6;border-color:#4aab9299}
+.admin-dashboard:not(.admin-light-theme) .health-ring>div{background:#1d3035}
+.admin-dashboard.admin-light-theme .health-ring>div{background:#e5f1ed}
+@media(hover:hover) and (pointer:fine){.admin-dashboard:not(.admin-light-theme) :is(.dashboard-card,.card-wise,.stat-card):hover,.admin-dashboard.admin-light-theme :is(.dashboard-card,.card-wise,.stat-card):hover{border-color:var(--glass-highlight);box-shadow:inset 1px 1px 0 var(--glass-highlight),0 16px 38px #0a152526}}
+@supports not (backdrop-filter:blur(1px)){.admin-dashboard:not(.admin-light-theme) :is(.dashboard-card,.card-wise,.stat-card,.admin-sidebar){background:#1d2933}.admin-dashboard.admin-light-theme :is(.dashboard-card,.card-wise,.stat-card,.admin-sidebar){background:#f1f8f5}}
+
+/* Smooth health visualization entrance alongside the glass card reveal. */
+.admin-dashboard .health-ring{animation:health-ring-settle 1050ms 180ms cubic-bezier(.22,1,.36,1) backwards}
+.admin-dashboard .chart-legend>span{animation:health-legend-arrive 750ms 350ms cubic-bezier(.22,1,.36,1) backwards}
+.admin-dashboard .chart-legend>span:nth-child(2){animation-delay:450ms}
+.admin-dashboard .chart-legend>span:nth-child(3){animation-delay:550ms}
+.admin-dashboard .line-chart svg{shape-rendering:geometricPrecision}
+.admin-dashboard .line-chart path[stroke]{vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round}
+.admin-dashboard .chart-axis{animation:health-legend-arrive 800ms 650ms ease backwards}
+@keyframes health-ring-settle{from{opacity:0;transform:rotate(-65deg) scale(.88)}to{opacity:1;transform:rotate(-30deg) scale(1)}}
+@keyframes health-legend-arrive{from{opacity:0;translate:0 8px}to{opacity:1;translate:0 0}}
+@media(prefers-reduced-motion:reduce){.admin-dashboard .health-ring,.admin-dashboard .chart-legend>span,.admin-dashboard .chart-axis{animation:none}}
+
+/* Hide the sidebar scrollbar while preserving wheel, touch and keyboard scrolling. */
+.admin-dashboard .admin-navigation{scrollbar-width:none;-ms-overflow-style:none}
+.admin-dashboard .admin-navigation::-webkit-scrollbar{display:none;width:0;height:0}
+
+/* Clear category headings without a white hover color. */
+.admin-dashboard .admin-navigation .category-toggle{font-size:12px;color:#b1b8c6;letter-spacing:.8px}
+.admin-dashboard .admin-navigation .category-toggle:hover{color:#b1b8c6;background:transparent}
+.admin-dashboard.admin-light-theme .admin-navigation .category-toggle{color:#52685f}
+.admin-dashboard.admin-light-theme .admin-navigation .category-toggle:hover{color:#52685f;background:transparent}

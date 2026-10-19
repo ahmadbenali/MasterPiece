@@ -25,16 +25,23 @@
         return;
       }
       toggle.disabled = true;
+      const bounds = toggle.getBoundingClientRect();
+      const x = bounds.left + bounds.width / 2;
+      const y = bounds.top + bounds.height / 2;
+      const radius = Math.hypot(Math.max(x, innerWidth - x), Math.max(y, innerHeight - y));
       document.documentElement.classList.add('admin-theme-reveal');
       try {
         const transition = document.startViewTransition(update);
         await transition.ready;
-        const radius = Math.hypot(innerWidth / 2, innerHeight);
         await document.documentElement.animate({
-          clipPath: ['circle(0px at 50% 100%)', `circle(${radius}px at 50% 100%)`]
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${radius}px at ${x}px ${y}px)`
+          ],
+          filter: ['brightness(1.1)', 'brightness(1)']
         }, {
-          duration: 850,
-          easing: 'cubic-bezier(.22,1,.36,1)',
+          duration: 1050,
+          easing: 'cubic-bezier(.2,.65,.3,1)',
           pseudoElement: '::view-transition-new(root)'
         }).finished;
         await transition.finished;

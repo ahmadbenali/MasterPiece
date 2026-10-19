@@ -1,4 +1,23 @@
 (() => {
+  const chart = document.querySelector('.line-chart');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+  chart?.querySelectorAll('path[stroke]').forEach(path => {
+    path.setAttribute('pathLength', '1');
+    path.setAttribute('stroke-linecap', 'round');
+    path.setAttribute('stroke-linejoin', 'round');
+  });
+  function revealChart() {
+    if (reducedMotion.matches || !chart) return;
+    chart.getAnimations({subtree:true}).forEach(animation => animation.cancel());
+    chart.querySelectorAll('path[stroke]').forEach((path, index) => {
+      path.animate([
+        {strokeDasharray:'1',strokeDashoffset:'1',opacity:0},
+        {strokeDasharray:'1',strokeDashoffset:'0',opacity:1}
+      ], {duration:1200,delay:250 + index * 90,easing:'cubic-bezier(.22,1,.36,1)',fill:'backwards'});
+    });
+    document.getElementById('trendArea')?.animate([{opacity:0},{opacity:1}], {duration:900,delay:500,fill:'backwards'});
+  }
+  revealChart();
   const date = document.getElementById('dashboardDate');
   date.textContent = new Intl.DateTimeFormat('en', {timeZone:'Asia/Amman',month:'short',day:'numeric',weekday:'short'}).format(new Date());
   const search = document.getElementById('transactionSearch');
@@ -24,5 +43,6 @@
     document.querySelector('.line-chart svg').setAttribute('aria-label', `Illustrative cleared transaction activity trend for ${weekly ? 'this week' : 'today'}`);
     const labels = weekly ? ['Mon','Wed','Fri','Sun'] : ['00:00','06:00','12:00','18:00'];
     document.querySelectorAll('#chartAxis span').forEach((label, index) => { label.textContent = labels[index]; });
+    revealChart();
   });
 })();
