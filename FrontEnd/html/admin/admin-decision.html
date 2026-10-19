@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../../css/workspace.css">
 <script src="../../js/workspace.js" defer>
 </script>
-<link rel="stylesheet" href="../../css/arrows.css"><script src="../../js/arrows.js" defer></script><link rel="stylesheet" href="../../css/admin-dashboard.css"><script src="../../js/admin-shell.js" defer></script></head>
+<link rel="stylesheet" href="../../css/arrows.css"><script src="../../js/arrows.js" defer></script><link rel="stylesheet" href="../../css/admin-dashboard.css"><script src="../../js/admin-shell.js" defer></script><script src="../../js/admin-decision.js" defer></script></head>
 <body class="admin-dashboard admin-workspace-page">
 <a class="skip-link" href="#main">Skip to content</a>
 <aside class="admin-sidebar">
@@ -43,24 +43,20 @@
 <div class="eyebrow">Fraud operations · Agent workspace</div>
 </div>
 <h1 class="display-title">Decision desk</h1>
-<p>Review a sample disposition for TX-9024.</p>
+<p>Review the evidence and choose what happens to TX-9024.</p>
 </div>
 </section>
 <div class="page-wrap content-area">
 <section class="card-wise form-card">
-<h2>Disposition</h2>
-<form action="admin-case-saved.html" data-route="admin-case-saved.html">
-<label class="option-card">
-<input type="radio" name="disposition" checked>Freeze &amp; cancel wire<small>Void the $18,450.00 SWIFT transfer, revoke sessions, and request branch re-verification.</small>
-</label>
-<label class="option-card">
-<input type="radio" name="disposition">Step-up video KYC<small>24-hour hold with a video identity match.</small>
-</label>
-<label class="option-card">
-<input type="checkbox" checked>Auto-file FinCEN SAR package<small>Illustrative package only. Nothing is transmitted.</small>
-</label>
-<div class="notice ">◇ FIDO2 ready · Sample signing state</div>
-<button class="btn-wise btn-dark" type="submit">Confirm sample disposition →</button>
+<h2>Transaction decision · TX-9024</h2>
+<form id="transactionDecisionForm" data-transaction="TX-9024" data-destination="admin-case-saved.html">
+<label class="option-card"><input type="radio" name="decision" value="approve" required><strong>Approve transaction</strong><small>Recognize the transfer as legitimate and release its hold.</small></label>
+<label class="option-card"><input type="radio" name="decision" value="reject" required><strong>Reject transaction</strong><small>Block the pending transfer because it appears fraudulent.</small></label>
+<label class="option-card"><input type="radio" name="decision" value="hold" required><strong>Keep on hold</strong><small>Wait for customer confirmation or investigate further.</small></label>
+<div class="field"><label for="decisionReason">Reason for your decision</label><textarea id="decisionReason" name="reason" rows="3" required maxlength="1000" placeholder="Explain the evidence supporting your decision."></textarea></div>
+<label class="option-card"><input type="checkbox" name="lockAccount"><strong>Also lock account access</strong><small>Optional separate action. Use only when the account may be compromised.</small></label>
+<div class="notice">Preview only. No real transaction or account will be changed.</div>
+<p id="decisionError" role="alert"></p><button class="btn-wise btn-dark" type="submit">Review decision →</button>
 </form>
 </section>
 </div>
@@ -80,5 +76,5 @@
 </p>
 <button class="btn-wise btn-dark" data-dialog-close>Got it</button>
 </dialog>
-</body>
+<dialog class="preview-dialog" id="decisionConfirmDialog" aria-labelledby="decisionConfirmTitle"><h2 id="decisionConfirmTitle">Confirm decision</h2><dl class="summary-list" id="decisionConfirmation"></dl><p class="small-copy">This confirms the decision in the preview only.</p><div class="button-row"><button type="button" class="btn-wise btn-dark" id="confirmDecision">Confirm decision</button><button type="button" class="btn-wise btn-outline" id="cancelDecision" autofocus>Go back</button></div></dialog></body>
 </html>

@@ -431,3 +431,10 @@
 /* Sidebar hover matches the selected navigation treatment. */
 .admin-dashboard:not(.admin-light-theme) .admin-navigation>a:hover{background:linear-gradient(180deg,#234441aa,#1c2330 70%,#181721);box-shadow:inset 0 1px 0 #34575266,inset 1px 0 0 #34575255;color:#e5e5e5}
 .admin-dashboard.admin-light-theme .admin-navigation>a:hover{background:linear-gradient(100deg,#d2eee3,#edf8f1);box-shadow:inset 0 0 0 1px #b9dccc;color:#126653}
+
+#decisionConfirmDialog{width:min(600px,calc(100% - 32px));max-height:90dvh;overflow:auto}
+#decisionConfirmDialog .summary-list>div{gap:24px}
+#decisionConfirmDialog dd,#savedDecisionReason{overflow-wrap:anywhere;white-space:normal}
+#decisionConfirmDialog dd{max-width:75%;text-align:right}
+#transactionDecisionForm .option-card strong{font-size:15px}
+.disposition-summary>div:has(#savedDecisionReason){grid-column:1/-1}

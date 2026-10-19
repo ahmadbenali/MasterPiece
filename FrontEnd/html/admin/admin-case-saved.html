@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="../../css/workspace.css">
 <script src="../../js/workspace.js" defer>
 </script>
-<link rel="stylesheet" href="../../css/arrows.css"><script src="../../js/arrows.js" defer></script><link rel="stylesheet" href="../../css/admin-dashboard.css"><script src="../../js/admin-shell.js" defer></script></head>
+<link rel="stylesheet" href="../../css/arrows.css"><script src="../../js/arrows.js" defer></script><link rel="stylesheet" href="../../css/admin-dashboard.css"><script src="../../js/admin-shell.js" defer></script><script src="../../js/admin-decision.js" defer></script></head>
 <body class="admin-dashboard admin-workspace-page">
 <a class="skip-link" href="#main">Skip to content</a>
 <aside class="admin-sidebar">
@@ -61,14 +61,14 @@
 <dd>TX-9024</dd>
 </div>
 <div>
-<dt>Disposition</dt>
-<dd>Sample wire hold</dd>
+<dt>Decision</dt>
+<dd id="savedDecision">No decision recorded</dd>
 </div>
 <div>
 <dt>Status</dt>
-<dd><span class="status-badge">Ready for review</span></dd>
+<dd><span class="status-badge" id="savedDecisionStatus">Preview</span></dd>
 </div>
-</dl>
+<div><dt>Reason</dt><dd id="savedDecisionReason">—</dd></div><div><dt>Account access</dt><dd id="savedDecisionLock">Unchanged</dd></div></dl>
 <p class="disposition-footnote">Confirmation saved in this demonstration. No live wire or account actions were performed.</p>
 <div class="button-row justify-content-center">
 <a class="btn-wise btn-dark" href="admin-cases.html">View cases →</a>
